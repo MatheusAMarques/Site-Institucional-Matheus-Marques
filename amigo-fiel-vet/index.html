@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR" style="scroll-padding-top: 7rem;">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Amigo Fiel Clínica Veterinária | Pronto-atendimento 24h em Belo Horizonte</title>
+<meta content="Clínica veterinária 24 horas na Savassi, Belo Horizonte/MG. Consultas, vacinas, cirurgias, exames, internação e atendimento especializado para cães e gatos, com carinho e sem pressa." name="description">
+<meta name="theme-color" content="#2E1A47">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Amigo Fiel Clínica Veterinária">
+<meta property="og:title" content="Amigo Fiel | Clínica Veterinária 24h em BH">
+<meta property="og:description" content="Consultas, vacinas, cirurgias e pronto-atendimento 24h para cães e gatos na Savassi.">
+<meta property="og:url" content="https://amigo-fiel-vet.vercel.app/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=630&q=80&auto=format&fit=crop">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232E1A47'/%3E%3Cg fill='%23F28C28'%3E%3Cellipse cx='32' cy='40' rx='11' ry='9'/%3E%3Ccircle cx='19' cy='27' r='5'/%3E%3Ccircle cx='27' cy='19' r='5'/%3E%3Ccircle cx='37' cy='19' r='5'/%3E%3Ccircle cx='45' cy='27' r='5'/%3E%3C/g%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "name": "Amigo Fiel Clínica Veterinária",
+  "url": "https://amigo-fiel-vet.vercel.app/",
+  "telephone": "+55-31-90000-0004",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Pernambuco, 1322",
+    "addressLocality": "Belo Horizonte",
+    "addressRegion": "MG",
+    "postalCode": "30130-151",
+    "addressCountry": "BR"
+  },
+  "openingHours": "Mo-Su 00:00-23:59"
+}
+</script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,600&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          plum: { 950: '#1C0F2C', 900: '#2E1A47', 800: '#402562', 700: '#55337F', 100: '#EFE7F7' },
+          tang: { 100: '#FFEBD6', 200: '#FFD6AD', 300: '#FFB870', 400: '#F7A04B', 500: '#F28C28', 600: '#DD7512', 700: '#C4600C' },
+          cream: { 50: '#FFFCF7', 100: '#FFF8EF', 200: '#F1E4D3' },
+          leaf: { 500: '#3FA37C' }
+        },
+        fontFamily: {
+          display: ['Fraunces', 'Georgia', 'serif'],
+          sans: ['Nunito', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --tb-dark: #2E1A47; --tb-dark-2: #402562; --tb-accent: #F28C28; --tb-accent-soft: #FFB870;
+    --tb-accent-bg: #FFEBD6; --tb-accent-text: #C4600C; --tb-bg: #FFF8EF; --tb-line: #F1E4D3;
+    --tb-font: Nunito, system-ui, sans-serif; --tb-font-title: Fraunces, Georgia, serif;
+  }
+  .blob-mask { border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%; }
+  .paw-bg { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 64 64'%3E%3Cg fill='%23F28C28' fill-opacity='.07'%3E%3Cellipse cx='32' cy='40' rx='9' ry='7'/%3E%3Ccircle cx='21' cy='29' r='4'/%3E%3Ccircle cx='28' cy='22' r='4'/%3E%3Ccircle cx='36' cy='22' r='4'/%3E%3Ccircle cx='43' cy='29' r='4'/%3E%3C/g%3E%3C/svg%3E"); }
+  .pop { transition: transform .25s cubic-bezier(.3,1.6,.5,1), box-shadow .25s ease; }
+  .pop:hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 20px 40px -18px rgba(46,26,71,.35); }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid #F28C28; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="bg-cream-100 text-plum-900/80 font-sans antialiased selection:bg-tang-200 selection:text-plum-950">
+
+<svg aria-hidden="true" style="display:none">
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.044.086.073.187.015.303-.059.116-.088.188-.175.289l-.261.303c-.087.086-.179.18-.077.355.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.102-.116.433-.506.549-.68.116-.173.231-.144.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.044.072.044.419-.1.824zm-3.423-10.416c-5.523 0-10 4.477-10 10 0 1.769.459 3.494 1.332 5.008l-1.417 5.178 5.305-1.392c1.45.792 3.093 1.21 4.779 1.211 5.522 0 10-4.477 10-10 0-5.523-4.478-10-9.999-10z"/>
+  </symbol>
+  <symbol id="icon-paw" viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="41" rx="11" ry="9"/><circle cx="18" cy="27" r="5.5"/><circle cx="27" cy="18" r="5.5"/><circle cx="37" cy="18" r="5.5"/><circle cx="46" cy="27" r="5.5"/></g></symbol>
+</svg>
+
+<!-- BEGIN: Header -->
+<header class="fixed top-0 inset-x-0 z-50">
+<div class="bg-tang-500 text-plum-950 text-sm font-bold">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-center gap-2 text-center">
+<span class="relative flex w-2.5 h-2.5"><span class="absolute inline-flex h-full w-full rounded-full bg-plum-900 opacity-60 animate-ping"></span><span class="relative inline-flex rounded-full w-2.5 h-2.5 bg-plum-900"></span></span>
+<span><span class="hidden sm:inline">Pronto-atendimento aberto agora · 24h, todos os dias</span><span class="sm:hidden">Aberto 24h, todos os dias</span></span>
+<a class="underline underline-offset-2 hover:text-white" data-wa="⚠️ EMERGÊNCIA – Vim pelo site. Meu pet precisa de atendimento urgente.">Emergência?<span class="hidden sm:inline"> Clique aqui</span></a>
+</div>
+</div>
+<div class="bg-cream-100/95 backdrop-blur-md border-b border-cream-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<a class="flex items-center gap-2.5 group" href="#inicio">
+<span class="w-11 h-11 rounded-full bg-plum-900 text-tang-500 flex items-center justify-center group-hover:rotate-12 transition-transform"><svg aria-hidden="true" class="w-6 h-6"><use href="#icon-paw"/></svg></span>
+<span class="leading-none"><span class="block font-display font-extrabold text-2xl text-plum-900">Amigo Fiel</span><span class="block text-[11px] font-bold text-tang-700 tracking-wide mt-0.5">clínica veterinária 24h</span></span>
+</a>
+<nav aria-label="Navegação principal" class="hidden lg:flex items-center gap-7 text-[15px] font-bold text-plum-900">
+<a class="hover:text-tang-600 transition-colors" href="#sobre">A clínica</a>
+<a class="hover:text-tang-600 transition-colors" href="#servicos">Serviços</a>
+<a class="hover:text-tang-600 transition-colors" href="#emergencia">Emergência</a>
+<a class="hover:text-tang-600 transition-colors" href="#equipe">Equipe</a>
+<a class="hover:text-tang-600 transition-colors" href="#duvidas">Dúvidas</a>
+<a class="hover:text-tang-600 transition-colors" href="#contato">Contato</a>
+</nav>
+<div class="hidden sm:flex">
+<a class="inline-flex items-center gap-2 px-5 py-3 text-sm font-extrabold text-white bg-plum-900 hover:bg-plum-700 rounded-full shadow-md transition-colors" data-wa="Olá! Vim pelo site e gostaria de agendar uma consulta para o meu pet." href="#contato">
+<svg aria-hidden="true" class="w-4 h-4 text-tang-400"><use href="#icon-whatsapp"/></svg>Agendar consulta
+</a>
+</div>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="lg:hidden text-plum-900 p-2" id="mobile-menu-btn" type="button">
+<svg aria-hidden="true" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</button>
+</div>
+<div class="hidden lg:hidden pb-6 border-t border-cream-200" id="mobile-menu">
+<div class="flex flex-col gap-3 font-bold text-plum-900 pt-4">
+<a class="py-1" href="#sobre">A clínica</a>
+<a class="py-1" href="#servicos">Serviços</a>
+<a class="py-1" href="#emergencia">Emergência</a>
+<a class="py-1" href="#equipe">Equipe</a>
+<a class="py-1" href="#duvidas">Dúvidas</a>
+<a class="py-1" href="#contato">Contato</a>
+<a class="mt-2 text-center px-4 py-3 font-extrabold text-white bg-plum-900 rounded-full" data-wa="Olá! Vim pelo site e gostaria de agendar uma consulta para o meu pet." href="#contato">Agendar consulta</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Header -->
+
+<main>
+<!-- BEGIN: Hero -->
+<section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 paw-bg overflow-hidden" id="inicio">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+<div>
+<span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-cream-200 text-sm font-bold text-plum-900 mb-6 shadow-sm">🐶 🐱 Cães e gatos · Savassi, BH</span>
+<h1 class="font-display text-5xl sm:text-6xl lg:text-[4.4rem] font-extrabold text-plum-900 leading-[1.02] tracking-tight mb-6">Cuidado de verdade para quem é <span class="relative inline-block text-tang-600">da família<svg aria-hidden="true" class="absolute -bottom-2 left-0 w-full" height="12" preserveAspectRatio="none" viewBox="0 0 200 12"><path d="M2 9 Q 50 1 100 7 T 198 5" fill="none" stroke="#F7A04B" stroke-linecap="round" stroke-width="5"/></svg></span>.</h1>
+<p class="text-lg sm:text-xl leading-relaxed max-w-xl mb-8">Consultas sem pressa, exames no local, cirurgias e pronto-atendimento 24 horas — com veterinários que tratam seu pet como se fosse deles.</p>
+<div class="flex flex-col sm:flex-row gap-4 mb-10">
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-extrabold text-white bg-plum-900 hover:bg-plum-700 rounded-full shadow-xl shadow-plum-900/20 transition-all hover:-translate-y-0.5" data-open-assistente href="#contato">Agendar consulta <span aria-hidden="true">→</span></a>
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-extrabold text-plum-950 bg-tang-400 hover:bg-tang-300 rounded-full transition-colors" data-wa="⚠️ EMERGÊNCIA – Vim pelo site. Meu pet precisa de atendimento urgente."><svg aria-hidden="true" class="w-5 h-5"><use href="#icon-whatsapp"/></svg>Emergência 24h</a>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold text-plum-900">
+<span class="flex items-center gap-2"><span class="text-leaf-500 text-lg">✓</span>Ambientes separados para cães e gatos</span>
+<span class="flex items-center gap-2"><span class="text-leaf-500 text-lg">✓</span>Laboratório e raio-X próprios</span>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 translate-x-4 translate-y-4 bg-tang-400 blob-mask"></div>
+<img alt="Cachorro feliz com a língua de fora olhando para a câmera" class="relative w-full h-[440px] sm:h-[520px] object-cover blob-mask" height="1040" loading="eager" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80&auto=format&fit=crop" width="1200">
+<div class="absolute top-6 -left-2 sm:-left-8 bg-white rounded-2xl px-5 py-4 shadow-xl rotate-[-4deg]"><div class="font-display font-extrabold text-3xl text-plum-900">15 mil+</div><div class="text-xs font-bold text-tang-700">pets atendidos</div></div>
+<div class="absolute bottom-6 right-0 sm:-right-4 bg-plum-900 text-white rounded-2xl px-5 py-4 shadow-xl rotate-[3deg] flex items-center gap-3"><span class="text-2xl">⭐</span><div><div class="font-extrabold">4,9 no Google</div><div class="text-xs text-tang-300">1.200+ avaliações</div></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Hero -->
+
+<!-- BEGIN: Sobre -->
+<section class="py-24 bg-white rounded-t-[3rem]" id="sobre">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="grid grid-cols-2 gap-4 reveal">
+<img alt="Veterinária fazendo carinho em um gato durante a consulta" class="col-span-2 w-full h-72 object-cover rounded-[2rem]" height="576" loading="lazy" src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=1100&q=80&auto=format&fit=crop" width="1100">
+<img alt="Gato preto e branco curioso" class="w-full h-52 object-cover rounded-[2rem]" height="416" loading="lazy" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80&auto=format&fit=crop" width="600">
+<img alt="Buldogue francês de moletom amarelo" class="w-full h-52 object-cover rounded-[2rem]" height="416" loading="lazy" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80&auto=format&fit=crop" width="600">
+</div>
+<div class="reveal">
+<span class="inline-flex items-center gap-2 text-sm font-extrabold text-tang-700 mb-3"><svg aria-hidden="true" class="w-4 h-4"><use href="#icon-paw"/></svg>A clínica</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mb-6">Uma clínica pensada para o bem-estar deles (e o seu)</h2>
+<p class="text-lg leading-relaxed mb-5">Desde 2011 na Savassi, a Amigo Fiel nasceu do sonho de duas veterinárias apaixonadas por bicho: oferecer medicina veterinária de qualidade com o acolhimento de uma clínica de bairro.</p>
+<p class="leading-relaxed mb-8">Somos certificados como <strong class="text-plum-900">Clínica Amiga do Gato</strong>, com sala de espera e consultório exclusivos para felinos, feromônios calmantes e manejo livre de medo. Seu pet menos estressado, você mais tranquilo.</p>
+<div class="grid grid-cols-3 gap-4">
+<div class="rounded-2xl bg-cream-100 p-4 text-center"><div class="font-display font-extrabold text-3xl text-plum-900">24h</div><div class="text-xs font-bold">todos os dias</div></div>
+<div class="rounded-2xl bg-cream-100 p-4 text-center"><div class="font-display font-extrabold text-3xl text-plum-900">14</div><div class="text-xs font-bold">veterinários</div></div>
+<div class="rounded-2xl bg-cream-100 p-4 text-center"><div class="font-display font-extrabold text-3xl text-plum-900">13</div><div class="text-xs font-bold">anos de história</div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Sobre -->
+
+<!-- BEGIN: Serviços -->
+<section class="py-24 bg-plum-900 text-white relative overflow-hidden" id="servicos">
+<svg aria-hidden="true" class="absolute -right-20 -top-10 w-96 h-96 text-plum-800 rotate-12"><use href="#icon-paw"/></svg>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="text-center max-w-2xl mx-auto mb-14 reveal">
+<span class="text-sm font-extrabold text-tang-400">Serviços</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight mt-2 mb-4">Tudo o que seu pet precisa, em um só lugar</h2>
+<p class="text-white/70 text-lg">Da primeira vacina aos cuidados na terceira idade.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🩺</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Consultas</h3><p class="text-sm leading-relaxed">Clínica geral com 40 minutos de consulta — tempo para examinar, explicar e tirar todas as dúvidas.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">💉</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Vacinas</h3><p class="text-sm leading-relaxed">Protocolos para filhotes e adultos, com carteirinha digital e lembrete automático das doses.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🔬</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Exames</h3><p class="text-sm leading-relaxed">Laboratório próprio, raio-X digital, ultrassom e eletrocardiograma com resultados no mesmo dia.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🏥</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Cirurgias</h3><p class="text-sm leading-relaxed">Castração, ortopedia e tecidos moles com anestesia inalatória e monitoramento completo.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🛏️</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Internação</h3><p class="text-sm leading-relaxed">Internação 24h com veterinário presente e boletim diário por vídeo para o tutor.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🦷</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Odontologia</h3><p class="text-sm leading-relaxed">Limpeza de tártaro, extrações e tratamento periodontal com raio-X odontológico.</p></article>
+<article class="pop bg-white text-plum-900/80 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">🐾</div><h3 class="font-display text-xl font-extrabold text-plum-900 mb-2">Especialidades</h3><p class="text-sm leading-relaxed">Dermatologia, cardiologia, oftalmologia, ortopedia e oncologia com especialistas.</p></article>
+<article class="pop bg-tang-400 text-plum-950 rounded-3xl p-7 reveal"><div class="text-4xl mb-4">💜</div><h3 class="font-display text-xl font-extrabold mb-2">Plano Amigo Fiel</h3><p class="text-sm leading-relaxed mb-3">Consultas, vacinas e check-up anual com mensalidade fixa a partir de R$ 89.</p><a class="text-sm font-extrabold underline underline-offset-2" data-wa="Olá! Quero saber mais sobre o Plano Amigo Fiel.">Quero conhecer</a></article>
+</div>
+</div>
+</section>
+<!-- END: Serviços -->
+
+<!-- BEGIN: Emergência -->
+<section class="py-24" id="emergencia">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="rounded-[2.5rem] bg-white border-4 border-tang-400 p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
+<div class="lg:col-span-7">
+<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-tang-100 text-sm font-extrabold text-tang-700 mb-5"><span class="w-2 h-2 rounded-full bg-tang-600 animate-pulse"></span>Pronto-atendimento 24h</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mb-5">Emergência não marca hora. A gente também não.</h2>
+<p class="text-lg mb-6">Plantão com veterinário, centro cirúrgico e UTI funcionando 24 horas, inclusive fins de semana e feriados. Procure atendimento imediatamente se seu pet apresentar:</p>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-bold text-plum-900 mb-8">
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Dificuldade para respirar</li>
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Convulsões ou desmaio</li>
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Suspeita de envenenamento</li>
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Atropelamento ou queda</li>
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Vômitos ou diarreia com sangue</li>
+<li class="flex items-center gap-2"><span class="text-tang-600">●</span>Barriga inchada e dura</li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex items-center justify-center gap-2 px-7 py-4 font-extrabold text-white bg-tang-600 hover:bg-tang-700 rounded-full shadow-lg" data-wa="⚠️ EMERGÊNCIA – Vim pelo site. Meu pet precisa de atendimento urgente."><svg aria-hidden="true" class="w-5 h-5"><use href="#icon-whatsapp"/></svg>Avisar que estou a caminho</a>
+<a class="inline-flex items-center justify-center px-7 py-4 font-extrabold text-plum-900 border-2 border-plum-900 hover:bg-plum-900 hover:text-white rounded-full transition-colors" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Pernambuco+1322+Savassi+Belo+Horizonte" rel="noopener noreferrer" target="_blank">Traçar rota até a clínica</a>
+</div>
+</div>
+<div class="lg:col-span-5 text-center">
+<div class="inline-flex flex-col items-center justify-center w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-plum-900 text-white shadow-2xl">
+<span class="font-display font-extrabold text-7xl sm:text-8xl text-tang-400 leading-none">24h</span>
+<span class="font-bold mt-2">365 dias por ano</span>
+<span class="text-xs text-white/60 mt-1">Rua Pernambuco, 1322 · Savassi</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Emergência -->
+
+<!-- BEGIN: Equipe -->
+<section class="py-24 bg-white" id="equipe">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14 reveal">
+<span class="text-sm font-extrabold text-tang-700">Equipe</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mt-2">Quem cuida do seu melhor amigo</h2>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="text-center reveal"><div class="mx-auto w-32 h-32 rounded-full bg-tang-100 border-4 border-white shadow-lg flex items-center justify-center font-display font-extrabold text-4xl text-tang-700 mb-4">AC</div><h3 class="font-display font-extrabold text-lg text-plum-900">Dra. Ana Costa</h3><p class="text-sm">Diretora clínica · Felinos</p></div>
+<div class="text-center reveal"><div class="mx-auto w-32 h-32 rounded-full bg-plum-100 border-4 border-white shadow-lg flex items-center justify-center font-display font-extrabold text-4xl text-plum-700 mb-4">RM</div><h3 class="font-display font-extrabold text-lg text-plum-900">Dra. Renata Melo</h3><p class="text-sm">Cirurgia e ortopedia</p></div>
+<div class="text-center reveal"><div class="mx-auto w-32 h-32 rounded-full bg-tang-100 border-4 border-white shadow-lg flex items-center justify-center font-display font-extrabold text-4xl text-tang-700 mb-4">GP</div><h3 class="font-display font-extrabold text-lg text-plum-900">Dr. Gustavo Prado</h3><p class="text-sm">Cardiologia</p></div>
+<div class="text-center reveal"><div class="mx-auto w-32 h-32 rounded-full bg-plum-100 border-4 border-white shadow-lg flex items-center justify-center font-display font-extrabold text-4xl text-plum-700 mb-4">LF</div><h3 class="font-display font-extrabold text-lg text-plum-900">Dra. Larissa Faria</h3><p class="text-sm">Dermatologia</p></div>
+</div>
+</div>
+</section>
+<!-- END: Equipe -->
+
+<!-- BEGIN: Depoimentos -->
+<section class="py-24 paw-bg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-14 reveal">
+<span class="text-sm font-extrabold text-tang-700">Depoimentos</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mt-2">Rabinhos abanando por aí</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<figure class="bg-white rounded-3xl p-8 shadow-sm border border-cream-200 reveal"><div class="flex items-center gap-3 mb-5"><span class="w-12 h-12 rounded-full bg-tang-100 flex items-center justify-center text-2xl">🐕</span><div><strong class="block text-plum-900">Thor</strong><span class="text-xs">Golden, 9 anos · tutora Camila</span></div></div><blockquote class="leading-relaxed">“O Thor passou mal às 3 da manhã e fomos atendidos em minutos. A equipe me mandava vídeo dele na internação todos os dias. Gratidão eterna!”</blockquote></figure>
+<figure class="bg-white rounded-3xl p-8 shadow-sm border border-cream-200 reveal"><div class="flex items-center gap-3 mb-5"><span class="w-12 h-12 rounded-full bg-plum-100 flex items-center justify-center text-2xl">🐈</span><div><strong class="block text-plum-900">Mia</strong><span class="text-xs">SRD, 4 anos · tutor Felipe</span></div></div><blockquote class="leading-relaxed">“A Mia odiava veterinário. No consultório só para gatos ela ficou tranquila pela primeira vez. Faz toda a diferença!”</blockquote></figure>
+<figure class="bg-white rounded-3xl p-8 shadow-sm border border-cream-200 reveal"><div class="flex items-center gap-3 mb-5"><span class="w-12 h-12 rounded-full bg-tang-100 flex items-center justify-center text-2xl">🐶</span><div><strong class="block text-plum-900">Paçoca</strong><span class="text-xs">Buldogue francês, 2 anos · tutora Bia</span></div></div><blockquote class="leading-relaxed">“Fizemos a cirurgia de respiração do Paçoca aqui. Explicaram tudo, deram orçamento certinho e a recuperação foi ótima.”</blockquote></figure>
+</div>
+</div>
+</section>
+<!-- END: Depoimentos -->
+
+<!-- BEGIN: Dúvidas -->
+<section class="py-24 bg-white" id="duvidas">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12 reveal"><span class="text-sm font-extrabold text-tang-700">Dúvidas</span><h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mt-2">Perguntas frequentes</h2></div>
+<div class="space-y-4">
+<details class="rounded-2xl bg-cream-100 p-6 reveal"><summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-extrabold text-plum-900 text-lg">Preciso agendar ou posso ir direto?<span class="faq-icon text-2xl text-tang-600 transition-transform">+</span></summary><p class="mt-3 leading-relaxed">Consultas de rotina são com hora marcada. Emergências são atendidas 24h por ordem de gravidade, sem agendamento.</p></details>
+<details class="rounded-2xl bg-cream-100 p-6 reveal"><summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-extrabold text-plum-900 text-lg">Vocês atendem animais exóticos?<span class="faq-icon text-2xl text-tang-600 transition-transform">+</span></summary><p class="mt-3 leading-relaxed">Nosso foco é cães e gatos. Para aves, répteis e roedores, indicamos parceiros especializados.</p></details>
+<details class="rounded-2xl bg-cream-100 p-6 reveal"><summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-extrabold text-plum-900 text-lg">Aceitam planos de saúde pet?<span class="faq-icon text-2xl text-tang-600 transition-transform">+</span></summary><p class="mt-3 leading-relaxed">Sim, atendemos os principais planos de saúde pet do mercado, além do nosso próprio Plano Amigo Fiel.</p></details>
+<details class="rounded-2xl bg-cream-100 p-6 reveal"><summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-extrabold text-plum-900 text-lg">Quais as formas de pagamento?<span class="faq-icon text-2xl text-tang-600 transition-transform">+</span></summary><p class="mt-3 leading-relaxed">Pix, débito e crédito em até 10x. Cirurgias e internações podem ser parceladas em até 12x.</p></details>
+</div>
+</div>
+</section>
+<!-- END: Dúvidas -->
+
+<!-- BEGIN: Contato -->
+<section class="py-24" id="contato">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-5 reveal">
+<span class="text-sm font-extrabold text-tang-700">Contato</span>
+<h2 class="font-display text-4xl sm:text-5xl font-extrabold text-plum-900 leading-tight mt-2 mb-6">Vamos marcar uma visita?</h2>
+<p class="text-lg mb-8">Agende uma consulta, tire dúvidas ou peça um orçamento. Respondemos rapidinho!</p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-cream-200"><span class="w-12 h-12 rounded-xl bg-tang-100 text-2xl flex items-center justify-center shrink-0">📍</span><div><span class="block text-xs font-extrabold uppercase tracking-wider text-tang-700">Endereço</span><p class="font-bold text-plum-900">Rua Pernambuco, 1322 – Savassi<br>Belo Horizonte/MG · CEP 30130-151</p><a class="text-sm font-bold text-tang-700 underline underline-offset-2" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Pernambuco+1322+Savassi+Belo+Horizonte" rel="noopener noreferrer" target="_blank">Abrir no Google Maps</a></div></div>
+<div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-cream-200"><span class="w-12 h-12 rounded-xl bg-tang-100 text-2xl flex items-center justify-center shrink-0">💬</span><div><span class="block text-xs font-extrabold uppercase tracking-wider text-tang-700">WhatsApp 24h</span><a class="font-display font-extrabold text-2xl text-plum-900 hover:text-tang-600" data-wa="Olá! Vim pelo site e gostaria de agendar uma consulta para o meu pet.">(31) 90000-0004</a></div></div>
+<div class="flex items-start gap-4 bg-white rounded-2xl p-5 border border-cream-200"><span class="w-12 h-12 rounded-xl bg-tang-100 text-2xl flex items-center justify-center shrink-0">🕒</span><div><span class="block text-xs font-extrabold uppercase tracking-wider text-tang-700">Horários</span><p class="font-bold text-plum-900">Consultas: seg. a sáb., 8h às 20h<br>Pronto-atendimento: 24h, todos os dias</p></div></div>
+</div>
+</div>
+<div class="lg:col-span-7 reveal">
+<div class="bg-white rounded-[2rem] p-8 sm:p-10 shadow-xl shadow-plum-900/5 border border-cream-200">
+<h3 class="font-display text-3xl font-extrabold text-plum-900 mb-2">Agendar consulta</h3>
+<p class="text-sm mb-5" id="form-nota">Preencha os campos e nossa recepção confirma o horário.</p>
+<button class="w-full mb-6 flex items-center justify-between gap-3 p-4 rounded-2xl bg-tang-100 hover:bg-tang-200 text-left transition-colors" data-open-assistente type="button"><span><span class="block font-extrabold text-plum-900">🐾 Prefere ser guiado?</span><span class="block text-xs mt-0.5">Nosso assistente agenda em menos de 2 minutos e identifica urgências.</span></span><span aria-hidden="true" class="font-extrabold text-tang-700">→</span></button>
+<form class="space-y-5" id="contact-form" novalidate>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div><label class="block text-sm font-extrabold text-plum-900 mb-2" for="nome">Seu nome</label><input autocomplete="name" class="w-full bg-cream-50 border-cream-200 focus:border-tang-500 focus:ring-tang-500 rounded-xl px-4 py-3" id="nome" placeholder="Nome do tutor" required type="text"></div>
+<div><label class="block text-sm font-extrabold text-plum-900 mb-2" for="email">E-mail</label><input autocomplete="email" class="w-full bg-cream-50 border-cream-200 focus:border-tang-500 focus:ring-tang-500 rounded-xl px-4 py-3" id="email" placeholder="voce@email.com" required type="email"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div><label class="block text-sm font-extrabold text-plum-900 mb-2" for="telefone">WhatsApp</label><input autocomplete="tel" class="w-full bg-cream-50 border-cream-200 focus:border-tang-500 focus:ring-tang-500 rounded-xl px-4 py-3" id="telefone" inputmode="tel" maxlength="15" placeholder="(31) 99999-9999" required type="tel"></div>
+<div><label class="block text-sm font-extrabold text-plum-900 mb-2" for="assunto">Motivo</label><select class="w-full bg-cream-50 border-cream-200 focus:border-tang-500 focus:ring-tang-500 rounded-xl px-4 py-3" id="assunto">
+<option>Consulta de rotina</option><option>Vacinas</option><option>Exames</option><option>Castração / cirurgia</option><option>Especialista</option><option>Plano Amigo Fiel</option><option>Outro</option>
+</select></div>
+</div>
+<div><label class="block text-sm font-extrabold text-plum-900 mb-2" for="mensagem">Sobre o seu pet</label><textarea class="w-full bg-cream-50 border-cream-200 focus:border-tang-500 focus:ring-tang-500 rounded-xl px-4 py-3" id="mensagem" placeholder="Nome, espécie, idade e o que está acontecendo..." required rows="4"></textarea></div>
+<label class="flex items-start gap-3 text-sm leading-relaxed cursor-pointer"><input class="mt-1 rounded border-cream-200 text-tang-600 focus:ring-tang-500" id="consentimento" required type="checkbox"><span>Concordo com o uso dos meus dados para retorno do contato, conforme a <a class="font-bold text-tang-700 underline underline-offset-2" href="privacidade.html" target="_blank">Política de Privacidade</a>.</span></label>
+<p aria-live="polite" class="hidden text-sm font-bold text-red-700" id="form-erro"></p>
+<input aria-hidden="true" id="botcheck" style="display:none" tabindex="-1" type="checkbox">
+<button class="w-full py-4 font-extrabold text-white bg-plum-900 hover:bg-plum-700 rounded-full shadow-md transition-colors disabled:opacity-60" id="form-btn" type="submit">Enviar solicitação</button>
+<p class="text-xs text-center">Em caso de emergência, não use o formulário: <a class="font-bold text-tang-700 underline" data-wa="⚠️ EMERGÊNCIA – Vim pelo site. Meu pet precisa de atendimento urgente.">fale agora no WhatsApp</a>.</p>
+</form>
+<div class="hidden p-6 rounded-2xl bg-tang-100 text-center" id="form-ok" role="status"><div class="font-display text-2xl font-extrabold text-plum-900 mb-1">Recebemos! 🐾</div><p class="text-sm">Nossa recepção vai entrar em contato para confirmar o melhor horário.</p><button class="mt-4 text-sm font-extrabold text-tang-700" id="form-novo" type="button">Enviar outra mensagem</button></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Contato -->
+</main>
+
+<!-- BEGIN: Footer -->
+<footer class="bg-plum-950 text-white/60 text-sm pt-16 pb-10 rounded-t-[3rem]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+<div class="md:col-span-2">
+<a class="flex items-center gap-2.5 mb-4" href="#inicio"><span class="w-11 h-11 rounded-full bg-tang-500 text-plum-950 flex items-center justify-center"><svg aria-hidden="true" class="w-6 h-6"><use href="#icon-paw"/></svg></span><span class="font-display font-extrabold text-2xl text-white">Amigo Fiel</span></a>
+<p class="max-w-md mb-3">Clínica veterinária 24 horas na Savassi. Cuidado de verdade para quem é da família.</p>
+<p class="text-xs text-white/40">Responsável técnica: Dra. Ana Costa · CRMV-MG 00000</p>
+</div>
+<div><h4 class="font-extrabold text-white mb-4">Navegação</h4><ul class="space-y-2"><li><a class="hover:text-tang-400" href="#sobre">A clínica</a></li><li><a class="hover:text-tang-400" href="#servicos">Serviços</a></li><li><a class="hover:text-tang-400" href="#emergencia">Emergência 24h</a></li><li><a class="hover:text-tang-400" href="#duvidas">Dúvidas</a></li></ul></div>
+<div><h4 class="font-extrabold text-white mb-4">Atendimento</h4><ul class="space-y-2"><li><a class="font-bold text-white hover:text-tang-400" data-wa="Olá! Vim pelo site.">WhatsApp: (31) 90000-0004</a></li><li><a class="hover:text-tang-400" href="mailto:atendimento@amigofielvet.com.br">atendimento@amigofielvet.com.br</a></li><li>Pronto-atendimento 24h</li></ul></div>
+</div>
+<div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+<div>© <span id="ano-atual">2026</span> Amigo Fiel Clínica Veterinária. Todos os direitos reservados.</div>
+<a class="hover:text-tang-400" href="privacidade.html">Política de Privacidade</a>
+</div>
+<p class="mt-6 text-center text-[11px] text-white/30">Projeto conceitual de portfólio — clínica, profissionais, dados de contato e depoimentos são fictícios. Fotos: Unsplash.</p>
+</div>
+</footer>
+<!-- END: Footer -->
+
+<!-- ============================================================
+     CONFIGURAÇÃO DO SITE
+     wa: número do WhatsApp (DDI + DDD + número, só dígitos)
+     web3formsKey: chave gerada em web3forms.com para receber por e-mail.
+                   Enquanto estiver vazia, tudo é enviado pelo WhatsApp.
+     ============================================================ -->
+<script>
+  window.SITE = {
+    brand: 'Amigo Fiel Clínica Veterinária',
+    short: '🐾',
+    wa: '5531900000004',
+    waDisplay: '(31) 90000-0004',
+    web3formsKey: '',
+    formAssuntoLabel: 'Motivo',
+    bot: {
+      title: 'Assistente Amigo Fiel',
+      hint: 'Oi! Quer agendar uma consulta para o seu pet? Te ajudo rapidinho. 🐾',
+      greeting: 'Oi! Sou o assistente da Amigo Fiel. 🐾',
+      intro: 'Vou fazer algumas perguntas rápidas sobre o seu pet para agendar o atendimento certo. No final, você envia tudo pelo nosso WhatsApp.',
+      startLabel: 'Agendar atendimento',
+      waDefault: 'Olá! Vim pelo site e gostaria de agendar uma consulta para o meu pet.',
+      waIntro: 'Olá! Fiz o pré-agendamento pelo site da Amigo Fiel.',
+      urgentTag: 'EMERGÊNCIA VETERINÁRIA',
+      steps: [
+        { key: 'especie', label: 'Espécie', q: 'Primeiro: o atendimento é para...', options: ['Cachorro 🐶', 'Gato 🐱', 'Mais de um pet', 'Outro animal'] },
+        { key: 'pet', label: 'Nome do pet', q: 'Qual é o nome dele(a)?', type: 'text', placeholder: 'Ex.: Thor', max: 40 },
+        { key: 'motivo', label: 'Motivo', q: (s) => 'E o que o(a) ' + (s.answers.find(a => a.key === 'pet') || {}).value + ' precisa?', options: [
+          { label: 'É uma emergência', urgent: true,
+            alert: 'Em emergências, venha direto para a clínica: o pronto-atendimento funciona 24h na Rua Pernambuco, 1322 (Savassi). Se puder, avise pelo WhatsApp que está a caminho para prepararmos tudo.',
+            urgentLabel: 'Avisar que estou a caminho',
+            urgentWa: '⚠️ EMERGÊNCIA – Vim pelo site. Estou a caminho da clínica com meu pet.',
+            then: [{ key: 'sinal', label: 'Sinal', q: 'O que está acontecendo?', options: ['Dificuldade para respirar', 'Convulsão ou desmaio', 'Suspeita de envenenamento', 'Acidente / trauma', 'Vômito ou diarreia intensos', 'Outro'] }] },
+          'Consulta de rotina / check-up',
+          { label: 'Está doentinho(a), mas não é urgente', then: [{ key: 'sintoma', label: 'Sintoma', q: 'O que você percebeu?', options: ['Não quer comer', 'Vômito ou diarreia leve', 'Coceira ou problema de pele', 'Mancando', 'Mudança de comportamento', 'Outro'] }] },
+          'Vacinas',
+          'Castração / cirurgia',
+          'Exames'
+        ] },
+        { key: 'idade', label: 'Idade', q: 'Qual a idade aproximada?', when: (s) => !s.urgente, options: ['Filhote (até 1 ano)', 'Adulto (1 a 7 anos)', 'Idoso (mais de 7 anos)', 'Não sei'] },
+        { key: 'periodo', label: 'Período preferido', q: 'Qual período fica melhor para a consulta?', when: (s) => !s.urgente, options: ['Manhã', 'Tarde', 'Noite', 'Sábado', 'O quanto antes'] }
+      ],
+      urgentNote: 'Vou marcar como EMERGÊNCIA para a equipe de plantão.',
+      relatoQ: 'Quer contar mais algum detalhe? (opcional)',
+      relatoPlaceholder: 'Ex.: começou ontem à noite, já tomou vermífugo...',
+      relatoLabel: 'Detalhes',
+      relatoOptional: true,
+      cidadeQ: null,
+      cidadeLabel: 'Bairro',
+      faq: [
+        { q: 'Vocês abrem 24h?', a: 'Sim! O pronto-atendimento funciona 24 horas, todos os dias, inclusive feriados. Consultas de rotina são de segunda a sábado, das 8h às 20h.' },
+        { q: 'Precisa agendar?', a: 'Consultas de rotina, sim. Emergências são atendidas sem agendamento, por ordem de gravidade.' },
+        { q: 'Onde fica a clínica?', a: 'Rua Pernambuco, 1322 – Savassi, Belo Horizonte/MG.', link: { href: 'https://www.google.com/maps/search/?api=1&query=Rua+Pernambuco+1322+Savassi+Belo+Horizonte', text: 'Abrir no Google Maps' } },
+        { q: 'Aceitam plano de saúde pet?', a: 'Aceitamos os principais planos do mercado e também temos o Plano Amigo Fiel, a partir de R$ 89/mês.' }
+      ],
+      sentMsg: '✓ Recebido! Nossa recepção vai confirmar o horário pelo telefone informado.',
+      sentWaMsg: 'Pronto! Assim que você enviar a mensagem, nossa equipe responde. Um carinho no seu pet! 🐾',
+      foot: 'Assistente automático · não substitui avaliação veterinária'
+    }
+  };
+</script>
+<!-- ============================================================
+     ASSISTENTE VIRTUAL + FORMULÁRIO (motor compartilhado)
+     Tudo o que muda de um site para outro fica em window.SITE,
+     definido logo acima deste bloco.
+     ============================================================ -->
+<style>
+  .tb-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 60; width: 62px; height: 62px; border-radius: 9999px; background: var(--tb-dark); color: var(--tb-accent-soft); display: flex; align-items: center; justify-content: center; border: 1px solid var(--tb-accent); box-shadow: 0 14px 32px -10px rgba(0,0,0,.45); cursor: pointer; transition: transform .2s ease, background .2s ease; }
+  .tb-launcher:hover { transform: scale(1.06); background: var(--tb-dark-2); }
+  .tb-launcher svg { width: 28px; height: 28px; }
+  .tb-launcher .tb-dot { position: absolute; top: 4px; right: 4px; width: 12px; height: 12px; border-radius: 9999px; background: var(--tb-accent); border: 2px solid var(--tb-dark); }
+  .tb-hint { position: fixed; right: 96px; bottom: 34px; z-index: 60; max-width: 240px; background: #fff; color: var(--tb-dark); border: 1px solid var(--tb-line); border-radius: 12px; padding: 10px 30px 10px 14px; font-size: 13px; font-weight: 600; line-height: 1.4; box-shadow: 0 12px 30px -10px rgba(0,0,0,.3); cursor: pointer; font-family: var(--tb-font); }
+  .tb-hint[hidden] { display: none; }
+  .tb-hint button { position: absolute; top: 4px; right: 6px; background: none; border: 0; font-size: 16px; color: #94a3b8; cursor: pointer; line-height: 1; padding: 4px; }
+  .tb-panel { position: fixed; right: 24px; bottom: 98px; z-index: 61; width: min(392px, calc(100vw - 32px)); height: min(640px, calc(100vh - 124px)); background: #fff; border: 1px solid var(--tb-line); border-radius: 16px; box-shadow: 0 28px 70px -16px rgba(0,0,0,.4); display: flex; flex-direction: column; overflow: hidden; font-family: var(--tb-font); }
+  .tb-panel[hidden] { display: none; }
+  .tb-head { background: var(--tb-dark); color: #fff; padding: 14px 14px 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .tb-avatar { width: 40px; height: 40px; border-radius: 9999px; border: 1px solid var(--tb-accent); color: var(--tb-accent-soft); display: flex; align-items: center; justify-content: center; font-family: var(--tb-font-title); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .tb-title { font-family: var(--tb-font-title); font-weight: 700; font-size: 15px; line-height: 1.2; }
+  .tb-sub { font-size: 11px; color: var(--tb-accent-soft); letter-spacing: .04em; margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+  .tb-sub::before { content: ""; width: 7px; height: 7px; border-radius: 9999px; background: #34d399; }
+  .tb-head-actions { margin-left: auto; display: flex; gap: 2px; }
+  .tb-icon-btn { width: 34px; height: 34px; border-radius: 8px; background: transparent; border: 0; color: #cbd5e1; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; }
+  .tb-icon-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+  .tb-icon-btn svg { width: 18px; height: 18px; }
+  .tb-messages { flex: 1; overflow-y: auto; padding: 16px; background: var(--tb-bg); display: flex; flex-direction: column; gap: 10px; }
+  .tb-msg { max-width: 86%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.5; white-space: pre-line; word-wrap: break-word; }
+  .tb-bot { align-self: flex-start; background: #fff; border: 1px solid var(--tb-line); color: #1E293B; border-top-left-radius: 4px; }
+  .tb-user { align-self: flex-end; background: var(--tb-dark); color: #fff; border-top-right-radius: 4px; }
+  .tb-alert { background: #FFF8EB; border-color: #F2C879; }
+  .tb-msg a { color: var(--tb-accent-text); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .tb-summary { white-space: normal; }
+  .tb-summary dl { margin: 8px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 13px; }
+  .tb-summary dt { color: var(--tb-accent-text); font-weight: 700; }
+  .tb-summary dd { margin: 0; color: var(--tb-dark); white-space: pre-line; }
+  .tb-typing { align-self: flex-start; background: #fff; border: 1px solid var(--tb-line); border-radius: 14px; border-top-left-radius: 4px; padding: 12px 14px; display: flex; gap: 4px; }
+  .tb-typing span { width: 6px; height: 6px; border-radius: 9999px; background: var(--tb-accent); opacity: .4; animation: tbBlink 1.2s infinite; }
+  .tb-typing span:nth-child(2) { animation-delay: .2s; }
+  .tb-typing span:nth-child(3) { animation-delay: .4s; }
+  @keyframes tbBlink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+  .tb-options { padding: 12px; border-top: 1px solid var(--tb-line); display: flex; flex-wrap: wrap; gap: 8px; max-height: 46%; overflow-y: auto; background: #fff; }
+  .tb-options:empty { display: none; }
+  .tb-opt { border: 1px solid var(--tb-accent); background: #fff; color: var(--tb-dark); font-size: 13px; font-weight: 600; padding: 8px 13px; border-radius: 9999px; cursor: pointer; text-decoration: none; line-height: 1.3; text-align: left; font-family: inherit; display: inline-flex; align-items: center; gap: 6px; }
+  .tb-opt:hover { background: var(--tb-accent-bg); }
+  .tb-opt.primary { background: var(--tb-dark); border-color: var(--tb-dark); color: #fff; }
+  .tb-opt.primary:hover { background: var(--tb-dark-2); }
+  .tb-opt.wa { background: #059669; border-color: #059669; color: #fff; }
+  .tb-opt.wa:hover { background: #047857; }
+  .tb-opt.ghost { border-color: var(--tb-line); color: #64748b; }
+  .tb-opt svg { width: 16px; height: 16px; }
+  .tb-input { padding: 10px 12px; border-top: 1px solid var(--tb-line); display: flex; gap: 8px; align-items: flex-end; background: #fff; }
+  .tb-input[hidden] { display: none; }
+  .tb-input textarea { flex: 1; resize: none; border: 1px solid var(--tb-line); background: var(--tb-bg); border-radius: 10px; padding: 10px 12px; font-size: 14px; font-family: inherit; color: var(--tb-dark); max-height: 120px; line-height: 1.4; }
+  .tb-input textarea:focus { outline: none; border-color: var(--tb-accent); box-shadow: 0 0 0 1px var(--tb-accent); }
+  .tb-send { width: 42px; height: 42px; border-radius: 10px; background: var(--tb-dark); color: var(--tb-accent-soft); border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .tb-send:hover { background: var(--tb-dark-2); }
+  .tb-send svg { width: 18px; height: 18px; }
+  .tb-input-extra { padding: 0 12px 8px; background: #fff; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94a3b8; }
+  .tb-input-extra[hidden] { display: none; }
+  .tb-input-extra button { background: none; border: 0; color: var(--tb-accent-text); font-weight: 700; font-size: 12px; cursor: pointer; font-family: inherit; }
+  .tb-error { color: #b91c1c; font-weight: 600; }
+  .tb-foot { font-size: 10.5px; color: #94a3b8; text-align: center; padding: 7px 10px; border-top: 1px solid var(--tb-line); background: #fff; }
+  @media (max-width: 640px) {
+    .tb-panel { inset: 0; right: 0; bottom: 0; width: 100%; height: 100%; height: 100dvh; border-radius: 0; border: 0; }
+    .tb-hint { right: 92px; bottom: 32px; max-width: 200px; }
+    body.tb-open .tb-launcher, body.tb-open .tb-hint { display: none; }
+  }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+</style>
+
+<div class="tb-hint" hidden id="tb-hint" role="button" tabindex="0">
+<span id="tb-hint-text"></span>
+<button aria-label="Fechar aviso" id="tb-hint-close" type="button">×</button>
+</div>
+<button aria-controls="tb-panel" aria-expanded="false" aria-label="Abrir assistente virtual" class="tb-launcher" id="tb-launcher" type="button">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3.5h14A2.5 2.5 0 0 1 21.5 6v9a2.5 2.5 0 0 1-2.5 2.5H9.2l-4.1 3.3c-.6.5-1.6.1-1.6-.8V6A2.5 2.5 0 0 1 5 3.5z"/><path d="M7.5 8.5h9M7.5 12.5h6" style="stroke: var(--tb-dark)" stroke-width="1.8" stroke-linecap="round"/></svg>
+<span class="tb-dot"></span>
+</button>
+
+<section aria-labelledby="tb-title" class="tb-panel" hidden id="tb-panel" role="dialog">
+<div class="tb-head">
+<div aria-hidden="true" class="tb-avatar" id="tb-avatar"></div>
+<div>
+<div class="tb-title" id="tb-title"></div>
+<div class="tb-sub" id="tb-sub"></div>
+</div>
+<div class="tb-head-actions">
+<a aria-label="Falar direto no WhatsApp" class="tb-icon-btn" id="tb-wa-head" rel="noopener noreferrer" target="_blank" title="Falar direto no WhatsApp"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg></a>
+<button aria-label="Recomeçar" class="tb-icon-btn" id="tb-restart" title="Recomeçar" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+<button aria-label="Fechar assistente" class="tb-icon-btn" id="tb-close" title="Fechar" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+</div>
+<div aria-live="polite" class="tb-messages" id="tb-messages"></div>
+<div class="tb-options" id="tb-options"></div>
+<form class="tb-input" hidden id="tb-input">
+<label class="sr-only" for="tb-text">Sua resposta</label>
+<textarea id="tb-text" rows="1"></textarea>
+<button aria-label="Enviar resposta" class="tb-send" type="submit"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</form>
+<div class="tb-input-extra" hidden id="tb-input-extra"><span id="tb-input-info"></span><button hidden id="tb-skip" type="button">Pular</button></div>
+<div class="tb-foot" id="tb-foot"></div>
+</section>
+
+<script>
+  // Máscara de telefone: (11) 98888-7777 ou (11) 3333-4444
+  window.mascaraTel = function (valor) {
+    const d = String(valor).replace(/\D/g, '').slice(0, 11);
+    if (!d) return '';
+    if (d.length <= 2) return '(' + d;
+    if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+    return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  };
+
+  // Envio por e-mail via Web3Forms (só funciona com a chave preenchida em SITE.web3formsKey)
+  window.enviarEmail = async function (assunto, campos, responderPara) {
+    const key = window.SITE.web3formsKey;
+    if (!key) return false;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const corpo = Object.assign({ access_key: key, subject: assunto, from_name: 'Site ' + window.SITE.brand }, campos);
+      if (responderPara) corpo.replyto = responderPara;
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(corpo),
+        signal: ctrl.signal
+      });
+      const j = await r.json();
+      return !!j.success;
+    } catch (e) {
+      return false;
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  window.waLink = (msg) => 'https://wa.me/' + window.SITE.wa + (msg ? '?text=' + encodeURIComponent(msg) : '');
+</script>
+
+<script>
+(() => {
+  const S = window.SITE;
+  const B = S.bot;
+  const $ = (id) => document.getElementById(id);
+  const panel = $('tb-panel'), launcher = $('tb-launcher'), msgs = $('tb-messages'), opts = $('tb-options');
+  const form = $('tb-input'), text = $('tb-text'), extra = $('tb-input-extra'), info = $('tb-input-info'), skip = $('tb-skip');
+  const hint = $('tb-hint');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  $('tb-avatar').textContent = S.short;
+  $('tb-title').textContent = B.title;
+  $('tb-sub').textContent = S.brand;
+  $('tb-foot').textContent = B.foot;
+  $('tb-hint-text').textContent = B.hint;
+  $('tb-wa-head').href = waLink(B.waDefault);
+
+  let state = {};
+  let run = 0; // invalida etapas antigas ao recomeçar
+  let started = false;
+  let pendingInput = null;
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  const scroll = () => { msgs.scrollTop = msgs.scrollHeight; };
+
+  async function bot(content, { alert = false, delay = 550 } = {}) {
+    const myRun = run;
+    const typing = document.createElement('div');
+    typing.className = 'tb-typing';
+    typing.setAttribute('aria-hidden', 'true');
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(typing); scroll();
+    await sleep(delay);
+    typing.remove();
+    if (myRun !== run) throw new Error('reset');
+    const el = document.createElement('div');
+    el.className = 'tb-msg tb-bot' + (alert ? ' tb-alert' : '');
+    if (typeof content === 'string') el.textContent = content; else el.appendChild(content);
+    msgs.appendChild(el); scroll();
+    return el;
+  }
+
+  function user(t) {
+    const el = document.createElement('div');
+    el.className = 'tb-msg tb-user';
+    el.textContent = t;
+    msgs.appendChild(el); scroll();
+  }
+
+  function clearControls() {
+    opts.innerHTML = '';
+    form.hidden = true; extra.hidden = true; skip.hidden = true;
+    pendingInput = null;
+  }
+
+  function options(list) {
+    clearControls();
+    list.forEach((o, i) => {
+      const el = document.createElement(o.href ? 'a' : 'button');
+      el.className = 'tb-opt' + (o.variant ? ' ' + o.variant : '');
+      if (o.href) { el.href = o.href; el.target = '_blank'; el.rel = 'noopener noreferrer'; }
+      else el.type = 'button';
+      if (o.icon === 'wa') el.innerHTML = '<svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>';
+      el.appendChild(document.createTextNode(o.label));
+      el.addEventListener('click', () => {
+        if (!o.href) { clearControls(); if (!o.silent) user(o.label); }
+        o.onClick && o.onClick();
+      });
+      opts.appendChild(el);
+      if (i === 0 && panel.contains(document.activeElement)) el.focus();
+    });
+    scroll();
+  }
+
+  function ask({ placeholder, min = 1, max = 800, optional = false, note = '', multiline = false, mask = null }) {
+    return new Promise((resolve) => {
+      clearControls();
+      text.value = '';
+      text.placeholder = placeholder;
+      text.maxLength = max;
+      text.rows = multiline ? 3 : 1;
+      text.inputMode = mask === 'tel' ? 'tel' : 'text';
+      text.autocomplete = mask === 'tel' ? 'tel' : 'off';
+      form.hidden = false;
+      info.textContent = note; info.classList.remove('tb-error');
+      extra.hidden = !note && !optional;
+      skip.hidden = !optional;
+      pendingInput = { resolve, min, optional, note, mask };
+      text.focus();
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!pendingInput) return;
+    const v = text.value.trim();
+    if (v.length < pendingInput.min) {
+      extra.hidden = false;
+      info.textContent = pendingInput.min > 1 ? 'Escreva um pouco mais, por favor.' : 'Digite sua resposta.';
+      info.classList.add('tb-error');
+      text.focus();
+      return;
+    }
+    const { resolve } = pendingInput;
+    clearControls(); user(v); resolve(v);
+  });
+  text.addEventListener('input', () => {
+    if (pendingInput && pendingInput.mask === 'tel') text.value = window.mascaraTel(text.value);
+  });
+  text.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && text.rows === 1) { e.preventDefault(); form.requestSubmit(); }
+  });
+  skip.addEventListener('click', () => {
+    if (!pendingInput) return;
+    const { resolve } = pendingInput;
+    clearControls(); user('Pular'); resolve('');
+  });
+
+  // Respostas em ordem, para montar o resumo e a mensagem
+  function setAnswer(key, label, value) {
+    const i = state.answers.findIndex(a => a.key === key);
+    if (i >= 0) state.answers[i].value = value; else state.answers.push({ key, label, value });
+  }
+
+  function buildMessage() {
+    const linhas = [];
+    if (state.urgente) linhas.push('⚠️ *' + (B.urgentTag || 'URGENTE') + '*', '');
+    linhas.push(B.waIntro, '');
+    linhas.push('*Nome:* ' + state.nome);
+    if (state.telefone) linhas.push('*Telefone:* ' + state.telefone);
+    if (state.cidade) linhas.push('*' + B.cidadeLabel + ':* ' + state.cidade);
+    state.answers.forEach(a => { if (a.value) linhas.push('*' + a.label + ':* ' + a.value); });
+    if (state.resumo) linhas.push('', '*' + B.relatoLabel + ':* ' + state.resumo);
+    return linhas.join('\n');
+  }
+
+  // ===== Fluxo =====
+  async function start() {
+    run++; state = { answers: [] }; msgs.innerHTML = ''; clearControls();
+    try {
+      await bot(B.greeting, { delay: 350 });
+      await bot(B.intro);
+      menu();
+    } catch (e) {}
+  }
+
+  function menu() {
+    options([
+      { label: B.startLabel, variant: 'primary', onClick: () => runSteps(B.steps, 0, relato) },
+      { label: 'Tenho uma dúvida rápida', onClick: () => faqMenu(true) },
+      { label: 'Falar direto no WhatsApp', variant: 'wa', icon: 'wa', href: waLink(B.waDefault) }
+    ]);
+  }
+
+  async function faqMenu(first) {
+    try {
+      await bot(first ? 'Claro! Escolha uma das perguntas:' : 'Posso ajudar com mais alguma coisa?');
+      options([
+        ...B.faq.map(f => ({ label: f.q, onClick: () => faqAnswer(f) })),
+        { label: B.startLabel, variant: 'primary', onClick: () => runSteps(B.steps, 0, relato) }
+      ]);
+    } catch (e) {}
+  }
+
+  async function faqAnswer(f) {
+    try {
+      let content = f.a;
+      if (f.link) {
+        const wrap = document.createElement('div');
+        wrap.appendChild(document.createTextNode(f.a + '\n'));
+        const a = document.createElement('a');
+        a.href = f.link.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = f.link.text;
+        wrap.appendChild(a);
+        content = wrap;
+      }
+      await bot(content);
+      faqMenu(false);
+    } catch (e) {}
+  }
+
+  // Executa as perguntas definidas em SITE.bot.steps
+  async function runSteps(list, idx, done) {
+    if (idx >= list.length) { done(); return; }
+    const s = list[idx];
+    const next = () => runSteps(list, idx + 1, done);
+    if (s.when && !s.when(state)) { next(); return; }
+    try {
+      await bot(typeof s.q === 'function' ? s.q(state) : s.q);
+      if (s.type === 'text') {
+        const v = await ask({ placeholder: s.placeholder || '', min: s.optional ? 0 : (s.min || 1), max: s.max || 200, optional: !!s.optional, multiline: !!s.multiline, note: s.note || '' });
+        setAnswer(s.key, s.label, v);
+        next();
+        return;
+      }
+      options(s.options.map(raw => {
+        const o = typeof raw === 'string' ? { label: raw } : raw;
+        return { label: o.label, onClick: async () => {
+          setAnswer(s.key, s.label, o.value || o.label);
+          state[s.key] = o.value || o.label;
+          if (o.urgent) state.urgente = true;
+          const cont = () => o.then ? runSteps(o.then, 0, next) : next();
+          try {
+            if (o.alert) {
+              await bot(o.alert, { alert: true });
+              if (o.urgentWa) {
+                options([
+                  { label: o.urgentLabel || 'Falar agora no WhatsApp', variant: 'wa', icon: 'wa', href: waLink(o.urgentWa) },
+                  { label: 'Continuar', onClick: cont }
+                ]);
+                return;
+              }
+            }
+            cont();
+          } catch (e) {}
+        } };
+      }));
+    } catch (e) {}
+  }
+
+  async function relato() {
+    try {
+      if (state.urgente && B.urgentNote) await bot(B.urgentNote, { alert: true });
+      await bot(B.relatoQ);
+      state.resumo = await ask({ placeholder: B.relatoPlaceholder, min: B.relatoOptional ? 0 : 10, max: 800, multiline: true, optional: !!B.relatoOptional, note: B.relatoNote || '' });
+      nome();
+    } catch (e) {}
+  }
+
+  async function nome() {
+    try {
+      await bot(B.nomeQ || 'Obrigado! Qual é o seu nome?');
+      state.nome = await ask({ placeholder: 'Seu nome', min: 2, max: 80 });
+      telefone();
+    } catch (e) {}
+  }
+
+  async function telefone() {
+    try {
+      await bot('Qual o melhor telefone ou WhatsApp, com DDD, para retornarmos o contato?');
+      while (true) {
+        const v = await ask({ placeholder: '(11) 99999-9999', min: 8, max: 15, mask: 'tel' });
+        const digitos = v.replace(/\D/g, '');
+        if (digitos.length >= 10 && digitos.length <= 11) { state.telefone = v; break; }
+        await bot('Esse número parece incompleto. Pode conferir e digitar com o DDD?');
+      }
+      cidade();
+    } catch (e) {}
+  }
+
+  async function cidade() {
+    try {
+      if (!B.cidadeQ) { revisar(); return; }
+      await bot(B.cidadeQ);
+      state.cidade = await ask({ placeholder: B.cidadePlaceholder || 'Ex.: São Paulo/SP', max: 80, optional: true });
+      revisar();
+    } catch (e) {}
+  }
+
+  function resumoBox(titulo) {
+    const box = document.createElement('div');
+    const strong = document.createElement('strong');
+    strong.textContent = titulo;
+    box.appendChild(strong);
+    const dl = document.createElement('dl');
+    const add = (k, v) => { if (!v) return; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dl.append(dt, dd); };
+    add('Nome', state.nome); add('Telefone', state.telefone); add(B.cidadeLabel, state.cidade);
+    state.answers.forEach(a => add(a.label, a.value));
+    add(B.relatoLabel, state.resumo);
+    box.appendChild(dl);
+    return box;
+  }
+
+  async function revisar() {
+    try {
+      const bubble = await bot(resumoBox('Confira seus dados'));
+      bubble.classList.add('tb-summary');
+      const wrap = document.createElement('div');
+      wrap.appendChild(document.createTextNode('Seus dados serão usados apenas para retornarmos o contato, conforme nossa '));
+      const a = document.createElement('a');
+      a.href = 'privacidade.html'; a.target = '_blank'; a.textContent = 'Política de Privacidade';
+      wrap.appendChild(a);
+      wrap.appendChild(document.createTextNode('. Posso enviar sua solicitação?'));
+      await bot(wrap);
+      options([
+        { label: 'Concordo e enviar', variant: 'primary', onClick: enviar },
+        { label: 'Corrigir (recomeçar)', variant: 'ghost', onClick: start, silent: true },
+        { label: 'Não concordo', variant: 'ghost', onClick: declined }
+      ]);
+    } catch (e) {}
+  }
+
+  async function declined() {
+    try {
+      await bot('Sem problemas. Nenhum dado foi enviado. Se preferir, fale diretamente conosco pelo WhatsApp: ' + S.waDisplay + '.');
+      options([
+        { label: 'Recomeçar', onClick: start, silent: true },
+        { label: 'Abrir WhatsApp', variant: 'wa', icon: 'wa', href: waLink(B.waDefault) }
+      ]);
+    } catch (e) {}
+  }
+
+  function camposEmail() {
+    const c = { 'Nome': state.nome, 'Telefone': state.telefone };
+    if (B.cidadeQ) c[B.cidadeLabel] = state.cidade || 'Não informado';
+    state.answers.forEach(a => { c[a.label] = a.value || '—'; });
+    c['Urgente'] = state.urgente ? 'SIM' : 'Não';
+    c[B.relatoLabel] = state.resumo || '—';
+    c['Origem'] = 'Assistente virtual do site';
+    return c;
+  }
+
+  async function enviar() {
+    const myRun = run;
+    try {
+      if (!S.web3formsKey) {
+        await bot('Toque no botão abaixo: o WhatsApp vai abrir com tudo já escrito. É só enviar.');
+        options([
+          { label: 'Enviar pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()), onClick: sent },
+          { label: 'Corrigir (recomeçar)', variant: 'ghost', onClick: start, silent: true }
+        ]);
+        return;
+      }
+      await bot('Enviando sua solicitação…', { delay: 300 });
+      const principal = state.answers[0] ? state.answers[0].value : 'Contato';
+      const assunto = (state.urgente ? '⚠️ URGENTE – ' : '') + 'Novo contato pelo assistente – ' + principal + ' – ' + state.nome;
+      const ok = await window.enviarEmail(assunto, camposEmail());
+      if (myRun !== run) return;
+      if (ok) {
+        await bot(B.sentMsg);
+        await bot('Se quiser agilizar, você também pode nos chamar no WhatsApp com o resumo já pronto.');
+        options([
+          { label: 'Enviar também pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()) },
+          { label: 'Recomeçar', variant: 'ghost', onClick: start, silent: true }
+        ]);
+      } else {
+        await bot('Não consegui enviar automaticamente agora. Para não perder seu contato, envie pelo WhatsApp: a mensagem já está pronta.', { alert: true });
+        options([
+          { label: 'Enviar pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()), onClick: sent },
+          { label: 'Tentar de novo', onClick: enviar, silent: true }
+        ]);
+      }
+    } catch (e) {}
+  }
+
+  async function sent() {
+    try {
+      await sleep(600);
+      await bot(B.sentWaMsg);
+      options([
+        { label: 'Abrir o WhatsApp de novo', variant: 'wa', icon: 'wa', href: waLink(buildMessage()) },
+        { label: 'Recomeçar', variant: 'ghost', onClick: start, silent: true }
+      ]);
+    } catch (e) {}
+  }
+
+  // ===== Abrir / fechar =====
+  function open() {
+    panel.hidden = false;
+    document.body.classList.add('tb-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    launcher.setAttribute('aria-label', 'Fechar assistente virtual');
+    hideHint();
+    if (!started) { started = true; start(); }
+    setTimeout(() => { const f = opts.querySelector('.tb-opt') || (!form.hidden && text); f && f.focus(); }, 50);
+  }
+  function close() {
+    panel.hidden = true;
+    document.body.classList.remove('tb-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-label', 'Abrir assistente virtual');
+    launcher.focus();
+  }
+  launcher.addEventListener('click', () => panel.hidden ? open() : close());
+  $('tb-close').addEventListener('click', close);
+  $('tb-restart').addEventListener('click', start);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
+  document.querySelectorAll('[data-open-assistente]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
+
+  // Aviso que aparece uma vez por visita
+  function hideHint() { hint.hidden = true; try { sessionStorage.setItem('tb-hint', '1'); } catch (e) {} }
+  let seen = false;
+  try { seen = sessionStorage.getItem('tb-hint') === '1'; } catch (e) {}
+  if (!seen) {
+    setTimeout(() => { if (panel.hidden) { hint.hidden = false; setTimeout(() => { if (!hint.hidden) hint.hidden = true; }, 12000); } }, 5000);
+  }
+  hint.addEventListener('click', (e) => { if (e.target.id !== 'tb-hint-close') open(); });
+  hint.addEventListener('keydown', (e) => { if (e.key === 'Enter') open(); });
+  $('tb-hint-close').addEventListener('click', (e) => { e.stopPropagation(); hideHint(); });
+})();
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const S = window.SITE;
+
+    // Links de WhatsApp: qualquer elemento com data-wa="mensagem" recebe o link certo
+    document.querySelectorAll('[data-wa]').forEach(a => {
+      a.href = waLink(a.getAttribute('data-wa'));
+      a.target = '_blank'; a.rel = 'noopener noreferrer';
+    });
+
+    // Menu mobile
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      const setOpen = (open) => {
+        mobileMenu.classList.toggle('hidden', !open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      };
+      menuBtn.addEventListener('click', () => setOpen(mobileMenu.classList.contains('hidden')));
+      mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+    }
+
+    // Animação suave ao rolar
+    const els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      }), { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    } else {
+      els.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Ano do rodapé sempre atualizado
+    const ano = document.getElementById('ano-atual');
+    if (ano) ano.textContent = new Date().getFullYear();
+
+    // Formulário de contato: e-mail automático (se configurado) ou WhatsApp
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const erro = document.getElementById('form-erro');
+    const btn = document.getElementById('form-btn');
+    const okBox = document.getElementById('form-ok');
+    const temEmail = !!S.web3formsKey;
+    const btnTexto = btn.textContent;
+    if (!temEmail) {
+      btn.textContent = 'Enviar pelo WhatsApp';
+      document.getElementById('form-nota').textContent = 'Preencha os campos abaixo. Ao enviar, o nosso WhatsApp será aberto com sua mensagem já escrita — é só tocar em enviar.';
+    }
+    const telInput = document.getElementById('telefone');
+    telInput.addEventListener('input', () => { telInput.value = window.mascaraTel(telInput.value); });
+    document.getElementById('form-novo').addEventListener('click', () => {
+      okBox.classList.add('hidden'); form.classList.remove('hidden'); document.getElementById('nome').focus();
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const get = (id) => document.getElementById(id).value.trim();
+      const nome = get('nome'), email = get('email'), telefone = get('telefone'), assunto = get('assunto'), mensagem = get('mensagem');
+      const consentiu = document.getElementById('consentimento').checked;
+
+      let problema = '';
+      if (!nome || !email || !telefone || !mensagem) problema = 'Por favor, preencha todos os campos.';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) problema = 'Verifique se o e-mail está correto.';
+      else if (telefone.replace(/\D/g, '').length < 10) problema = 'Informe o telefone com DDD.';
+      else if (!consentiu) problema = 'Para continuar, marque a caixa de concordância com a Política de Privacidade.';
+      if (problema) { erro.textContent = problema; erro.classList.remove('hidden'); return; }
+      erro.classList.add('hidden');
+
+      const texto =
+        S.bot.waDefault + '\n\n' +
+        '*Nome:* ' + nome + '\n' +
+        '*E-mail:* ' + email + '\n' +
+        '*Telefone:* ' + telefone + '\n' +
+        '*' + S.formAssuntoLabel + ':* ' + assunto + '\n\n' +
+        '*Mensagem:* ' + mensagem;
+      const linkWa = waLink(texto);
+
+      if (!temEmail) { window.open(linkWa, '_blank', 'noopener'); return; }
+      if (document.getElementById('botcheck').checked) return;
+
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      const ok = await window.enviarEmail(
+        'Novo contato do site – ' + assunto + ' – ' + nome,
+        { 'Nome': nome, 'E-mail': email, 'Telefone': telefone, [S.formAssuntoLabel]: assunto, 'Mensagem': mensagem, 'Origem': 'Formulário de contato do site' },
+        email
+      );
+      btn.disabled = false; btn.textContent = btnTexto;
+      if (ok) {
+        form.reset(); form.classList.add('hidden'); okBox.classList.remove('hidden');
+      } else {
+        erro.textContent = '';
+        erro.appendChild(document.createTextNode('Não foi possível enviar agora. '));
+        const a = document.createElement('a');
+        a.href = linkWa; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'underline';
+        a.textContent = 'Envie pelo WhatsApp com a mensagem já pronta.';
+        erro.appendChild(a);
+        erro.classList.remove('hidden');
+      }
+    });
+  });
+</script>
+<!-- FIM: assistente virtual + formulário -->
+</body>
+</html>

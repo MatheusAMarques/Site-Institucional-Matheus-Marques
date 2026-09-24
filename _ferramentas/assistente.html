@@ -1,0 +1,636 @@
+<!-- ============================================================
+     ASSISTENTE VIRTUAL + FORMULÁRIO (motor compartilhado)
+     Tudo o que muda de um site para outro fica em window.SITE,
+     definido logo acima deste bloco.
+     ============================================================ -->
+<style>
+  .tb-launcher { position: fixed; right: 24px; bottom: 24px; z-index: 60; width: 62px; height: 62px; border-radius: 9999px; background: var(--tb-dark); color: var(--tb-accent-soft); display: flex; align-items: center; justify-content: center; border: 1px solid var(--tb-accent); box-shadow: 0 14px 32px -10px rgba(0,0,0,.45); cursor: pointer; transition: transform .2s ease, background .2s ease; }
+  .tb-launcher:hover { transform: scale(1.06); background: var(--tb-dark-2); }
+  .tb-launcher svg { width: 28px; height: 28px; }
+  .tb-launcher .tb-dot { position: absolute; top: 4px; right: 4px; width: 12px; height: 12px; border-radius: 9999px; background: var(--tb-accent); border: 2px solid var(--tb-dark); }
+  .tb-hint { position: fixed; right: 96px; bottom: 34px; z-index: 60; max-width: 240px; background: #fff; color: var(--tb-dark); border: 1px solid var(--tb-line); border-radius: 12px; padding: 10px 30px 10px 14px; font-size: 13px; font-weight: 600; line-height: 1.4; box-shadow: 0 12px 30px -10px rgba(0,0,0,.3); cursor: pointer; font-family: var(--tb-font); }
+  .tb-hint[hidden] { display: none; }
+  .tb-hint button { position: absolute; top: 4px; right: 6px; background: none; border: 0; font-size: 16px; color: #94a3b8; cursor: pointer; line-height: 1; padding: 4px; }
+  .tb-panel { position: fixed; right: 24px; bottom: 98px; z-index: 61; width: min(392px, calc(100vw - 32px)); height: min(640px, calc(100vh - 124px)); background: #fff; border: 1px solid var(--tb-line); border-radius: 16px; box-shadow: 0 28px 70px -16px rgba(0,0,0,.4); display: flex; flex-direction: column; overflow: hidden; font-family: var(--tb-font); }
+  .tb-panel[hidden] { display: none; }
+  .tb-head { background: var(--tb-dark); color: #fff; padding: 14px 14px 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .tb-avatar { width: 40px; height: 40px; border-radius: 9999px; border: 1px solid var(--tb-accent); color: var(--tb-accent-soft); display: flex; align-items: center; justify-content: center; font-family: var(--tb-font-title); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .tb-title { font-family: var(--tb-font-title); font-weight: 700; font-size: 15px; line-height: 1.2; }
+  .tb-sub { font-size: 11px; color: var(--tb-accent-soft); letter-spacing: .04em; margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+  .tb-sub::before { content: ""; width: 7px; height: 7px; border-radius: 9999px; background: #34d399; }
+  .tb-head-actions { margin-left: auto; display: flex; gap: 2px; }
+  .tb-icon-btn { width: 34px; height: 34px; border-radius: 8px; background: transparent; border: 0; color: #cbd5e1; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; }
+  .tb-icon-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+  .tb-icon-btn svg { width: 18px; height: 18px; }
+  .tb-messages { flex: 1; overflow-y: auto; padding: 16px; background: var(--tb-bg); display: flex; flex-direction: column; gap: 10px; }
+  .tb-msg { max-width: 86%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.5; white-space: pre-line; word-wrap: break-word; }
+  .tb-bot { align-self: flex-start; background: #fff; border: 1px solid var(--tb-line); color: #1E293B; border-top-left-radius: 4px; }
+  .tb-user { align-self: flex-end; background: var(--tb-dark); color: #fff; border-top-right-radius: 4px; }
+  .tb-alert { background: #FFF8EB; border-color: #F2C879; }
+  .tb-msg a { color: var(--tb-accent-text); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .tb-summary { white-space: normal; }
+  .tb-summary dl { margin: 8px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 13px; }
+  .tb-summary dt { color: var(--tb-accent-text); font-weight: 700; }
+  .tb-summary dd { margin: 0; color: var(--tb-dark); white-space: pre-line; }
+  .tb-typing { align-self: flex-start; background: #fff; border: 1px solid var(--tb-line); border-radius: 14px; border-top-left-radius: 4px; padding: 12px 14px; display: flex; gap: 4px; }
+  .tb-typing span { width: 6px; height: 6px; border-radius: 9999px; background: var(--tb-accent); opacity: .4; animation: tbBlink 1.2s infinite; }
+  .tb-typing span:nth-child(2) { animation-delay: .2s; }
+  .tb-typing span:nth-child(3) { animation-delay: .4s; }
+  @keyframes tbBlink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+  .tb-options { padding: 12px; border-top: 1px solid var(--tb-line); display: flex; flex-wrap: wrap; gap: 8px; max-height: 46%; overflow-y: auto; background: #fff; }
+  .tb-options:empty { display: none; }
+  .tb-opt { border: 1px solid var(--tb-accent); background: #fff; color: var(--tb-dark); font-size: 13px; font-weight: 600; padding: 8px 13px; border-radius: 9999px; cursor: pointer; text-decoration: none; line-height: 1.3; text-align: left; font-family: inherit; display: inline-flex; align-items: center; gap: 6px; }
+  .tb-opt:hover { background: var(--tb-accent-bg); }
+  .tb-opt.primary { background: var(--tb-dark); border-color: var(--tb-dark); color: #fff; }
+  .tb-opt.primary:hover { background: var(--tb-dark-2); }
+  .tb-opt.wa { background: #059669; border-color: #059669; color: #fff; }
+  .tb-opt.wa:hover { background: #047857; }
+  .tb-opt.ghost { border-color: var(--tb-line); color: #64748b; }
+  .tb-opt svg { width: 16px; height: 16px; }
+  .tb-input { padding: 10px 12px; border-top: 1px solid var(--tb-line); display: flex; gap: 8px; align-items: flex-end; background: #fff; }
+  .tb-input[hidden] { display: none; }
+  .tb-input textarea { flex: 1; resize: none; border: 1px solid var(--tb-line); background: var(--tb-bg); border-radius: 10px; padding: 10px 12px; font-size: 14px; font-family: inherit; color: var(--tb-dark); max-height: 120px; line-height: 1.4; }
+  .tb-input textarea:focus { outline: none; border-color: var(--tb-accent); box-shadow: 0 0 0 1px var(--tb-accent); }
+  .tb-send { width: 42px; height: 42px; border-radius: 10px; background: var(--tb-dark); color: var(--tb-accent-soft); border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .tb-send:hover { background: var(--tb-dark-2); }
+  .tb-send svg { width: 18px; height: 18px; }
+  .tb-input-extra { padding: 0 12px 8px; background: #fff; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94a3b8; }
+  .tb-input-extra[hidden] { display: none; }
+  .tb-input-extra button { background: none; border: 0; color: var(--tb-accent-text); font-weight: 700; font-size: 12px; cursor: pointer; font-family: inherit; }
+  .tb-error { color: #b91c1c; font-weight: 600; }
+  .tb-foot { font-size: 10.5px; color: #94a3b8; text-align: center; padding: 7px 10px; border-top: 1px solid var(--tb-line); background: #fff; }
+  @media (max-width: 640px) {
+    .tb-panel { inset: 0; right: 0; bottom: 0; width: 100%; height: 100%; height: 100dvh; border-radius: 0; border: 0; }
+    .tb-hint { right: 92px; bottom: 32px; max-width: 200px; }
+    body.tb-open .tb-launcher, body.tb-open .tb-hint { display: none; }
+  }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+</style>
+
+<div class="tb-hint" hidden id="tb-hint" role="button" tabindex="0">
+<span id="tb-hint-text"></span>
+<button aria-label="Fechar aviso" id="tb-hint-close" type="button">×</button>
+</div>
+<button aria-controls="tb-panel" aria-expanded="false" aria-label="Abrir assistente virtual" class="tb-launcher" id="tb-launcher" type="button">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3.5h14A2.5 2.5 0 0 1 21.5 6v9a2.5 2.5 0 0 1-2.5 2.5H9.2l-4.1 3.3c-.6.5-1.6.1-1.6-.8V6A2.5 2.5 0 0 1 5 3.5z"/><path d="M7.5 8.5h9M7.5 12.5h6" style="stroke: var(--tb-dark)" stroke-width="1.8" stroke-linecap="round"/></svg>
+<span class="tb-dot"></span>
+</button>
+
+<section aria-labelledby="tb-title" class="tb-panel" hidden id="tb-panel" role="dialog">
+<div class="tb-head">
+<div aria-hidden="true" class="tb-avatar" id="tb-avatar"></div>
+<div>
+<div class="tb-title" id="tb-title"></div>
+<div class="tb-sub" id="tb-sub"></div>
+</div>
+<div class="tb-head-actions">
+<a aria-label="Falar direto no WhatsApp" class="tb-icon-btn" id="tb-wa-head" rel="noopener noreferrer" target="_blank" title="Falar direto no WhatsApp"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg></a>
+<button aria-label="Recomeçar" class="tb-icon-btn" id="tb-restart" title="Recomeçar" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+<button aria-label="Fechar assistente" class="tb-icon-btn" id="tb-close" title="Fechar" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+</div>
+<div aria-live="polite" class="tb-messages" id="tb-messages"></div>
+<div class="tb-options" id="tb-options"></div>
+<form class="tb-input" hidden id="tb-input">
+<label class="sr-only" for="tb-text">Sua resposta</label>
+<textarea id="tb-text" rows="1"></textarea>
+<button aria-label="Enviar resposta" class="tb-send" type="submit"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</form>
+<div class="tb-input-extra" hidden id="tb-input-extra"><span id="tb-input-info"></span><button hidden id="tb-skip" type="button">Pular</button></div>
+<div class="tb-foot" id="tb-foot"></div>
+</section>
+
+<script>
+  // Máscara de telefone: (11) 98888-7777 ou (11) 3333-4444
+  window.mascaraTel = function (valor) {
+    const d = String(valor).replace(/\D/g, '').slice(0, 11);
+    if (!d) return '';
+    if (d.length <= 2) return '(' + d;
+    if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+    return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  };
+
+  // Envio por e-mail via Web3Forms (só funciona com a chave preenchida em SITE.web3formsKey)
+  window.enviarEmail = async function (assunto, campos, responderPara) {
+    const key = window.SITE.web3formsKey;
+    if (!key) return false;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const corpo = Object.assign({ access_key: key, subject: assunto, from_name: 'Site ' + window.SITE.brand }, campos);
+      if (responderPara) corpo.replyto = responderPara;
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(corpo),
+        signal: ctrl.signal
+      });
+      const j = await r.json();
+      return !!j.success;
+    } catch (e) {
+      return false;
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+
+  window.waLink = (msg) => 'https://wa.me/' + window.SITE.wa + (msg ? '?text=' + encodeURIComponent(msg) : '');
+</script>
+
+<script>
+(() => {
+  const S = window.SITE;
+  const B = S.bot;
+  const $ = (id) => document.getElementById(id);
+  const panel = $('tb-panel'), launcher = $('tb-launcher'), msgs = $('tb-messages'), opts = $('tb-options');
+  const form = $('tb-input'), text = $('tb-text'), extra = $('tb-input-extra'), info = $('tb-input-info'), skip = $('tb-skip');
+  const hint = $('tb-hint');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  $('tb-avatar').textContent = S.short;
+  $('tb-title').textContent = B.title;
+  $('tb-sub').textContent = S.brand;
+  $('tb-foot').textContent = B.foot;
+  $('tb-hint-text').textContent = B.hint;
+  $('tb-wa-head').href = waLink(B.waDefault);
+
+  let state = {};
+  let run = 0; // invalida etapas antigas ao recomeçar
+  let started = false;
+  let pendingInput = null;
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+  const scroll = () => { msgs.scrollTop = msgs.scrollHeight; };
+
+  async function bot(content, { alert = false, delay = 550 } = {}) {
+    const myRun = run;
+    const typing = document.createElement('div');
+    typing.className = 'tb-typing';
+    typing.setAttribute('aria-hidden', 'true');
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(typing); scroll();
+    await sleep(delay);
+    typing.remove();
+    if (myRun !== run) throw new Error('reset');
+    const el = document.createElement('div');
+    el.className = 'tb-msg tb-bot' + (alert ? ' tb-alert' : '');
+    if (typeof content === 'string') el.textContent = content; else el.appendChild(content);
+    msgs.appendChild(el); scroll();
+    return el;
+  }
+
+  function user(t) {
+    const el = document.createElement('div');
+    el.className = 'tb-msg tb-user';
+    el.textContent = t;
+    msgs.appendChild(el); scroll();
+  }
+
+  function clearControls() {
+    opts.innerHTML = '';
+    form.hidden = true; extra.hidden = true; skip.hidden = true;
+    pendingInput = null;
+  }
+
+  function options(list) {
+    clearControls();
+    list.forEach((o, i) => {
+      const el = document.createElement(o.href ? 'a' : 'button');
+      el.className = 'tb-opt' + (o.variant ? ' ' + o.variant : '');
+      if (o.href) { el.href = o.href; el.target = '_blank'; el.rel = 'noopener noreferrer'; }
+      else el.type = 'button';
+      if (o.icon === 'wa') el.innerHTML = '<svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>';
+      el.appendChild(document.createTextNode(o.label));
+      el.addEventListener('click', () => {
+        if (!o.href) { clearControls(); if (!o.silent) user(o.label); }
+        o.onClick && o.onClick();
+      });
+      opts.appendChild(el);
+      if (i === 0 && panel.contains(document.activeElement)) el.focus();
+    });
+    scroll();
+  }
+
+  function ask({ placeholder, min = 1, max = 800, optional = false, note = '', multiline = false, mask = null }) {
+    return new Promise((resolve) => {
+      clearControls();
+      text.value = '';
+      text.placeholder = placeholder;
+      text.maxLength = max;
+      text.rows = multiline ? 3 : 1;
+      text.inputMode = mask === 'tel' ? 'tel' : 'text';
+      text.autocomplete = mask === 'tel' ? 'tel' : 'off';
+      form.hidden = false;
+      info.textContent = note; info.classList.remove('tb-error');
+      extra.hidden = !note && !optional;
+      skip.hidden = !optional;
+      pendingInput = { resolve, min, optional, note, mask };
+      text.focus();
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!pendingInput) return;
+    const v = text.value.trim();
+    if (v.length < pendingInput.min) {
+      extra.hidden = false;
+      info.textContent = pendingInput.min > 1 ? 'Escreva um pouco mais, por favor.' : 'Digite sua resposta.';
+      info.classList.add('tb-error');
+      text.focus();
+      return;
+    }
+    const { resolve } = pendingInput;
+    clearControls(); user(v); resolve(v);
+  });
+  text.addEventListener('input', () => {
+    if (pendingInput && pendingInput.mask === 'tel') text.value = window.mascaraTel(text.value);
+  });
+  text.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey && text.rows === 1) { e.preventDefault(); form.requestSubmit(); }
+  });
+  skip.addEventListener('click', () => {
+    if (!pendingInput) return;
+    const { resolve } = pendingInput;
+    clearControls(); user('Pular'); resolve('');
+  });
+
+  // Respostas em ordem, para montar o resumo e a mensagem
+  function setAnswer(key, label, value) {
+    const i = state.answers.findIndex(a => a.key === key);
+    if (i >= 0) state.answers[i].value = value; else state.answers.push({ key, label, value });
+  }
+
+  function buildMessage() {
+    const linhas = [];
+    if (state.urgente) linhas.push('⚠️ *' + (B.urgentTag || 'URGENTE') + '*', '');
+    linhas.push(B.waIntro, '');
+    linhas.push('*Nome:* ' + state.nome);
+    if (state.telefone) linhas.push('*Telefone:* ' + state.telefone);
+    if (state.cidade) linhas.push('*' + B.cidadeLabel + ':* ' + state.cidade);
+    state.answers.forEach(a => { if (a.value) linhas.push('*' + a.label + ':* ' + a.value); });
+    if (state.resumo) linhas.push('', '*' + B.relatoLabel + ':* ' + state.resumo);
+    return linhas.join('\n');
+  }
+
+  // ===== Fluxo =====
+  async function start() {
+    run++; state = { answers: [] }; msgs.innerHTML = ''; clearControls();
+    try {
+      await bot(B.greeting, { delay: 350 });
+      await bot(B.intro);
+      menu();
+    } catch (e) {}
+  }
+
+  function menu() {
+    options([
+      { label: B.startLabel, variant: 'primary', onClick: () => runSteps(B.steps, 0, relato) },
+      { label: 'Tenho uma dúvida rápida', onClick: () => faqMenu(true) },
+      { label: 'Falar direto no WhatsApp', variant: 'wa', icon: 'wa', href: waLink(B.waDefault) }
+    ]);
+  }
+
+  async function faqMenu(first) {
+    try {
+      await bot(first ? 'Claro! Escolha uma das perguntas:' : 'Posso ajudar com mais alguma coisa?');
+      options([
+        ...B.faq.map(f => ({ label: f.q, onClick: () => faqAnswer(f) })),
+        { label: B.startLabel, variant: 'primary', onClick: () => runSteps(B.steps, 0, relato) }
+      ]);
+    } catch (e) {}
+  }
+
+  async function faqAnswer(f) {
+    try {
+      let content = f.a;
+      if (f.link) {
+        const wrap = document.createElement('div');
+        wrap.appendChild(document.createTextNode(f.a + '\n'));
+        const a = document.createElement('a');
+        a.href = f.link.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = f.link.text;
+        wrap.appendChild(a);
+        content = wrap;
+      }
+      await bot(content);
+      faqMenu(false);
+    } catch (e) {}
+  }
+
+  // Executa as perguntas definidas em SITE.bot.steps
+  async function runSteps(list, idx, done) {
+    if (idx >= list.length) { done(); return; }
+    const s = list[idx];
+    const next = () => runSteps(list, idx + 1, done);
+    if (s.when && !s.when(state)) { next(); return; }
+    try {
+      await bot(typeof s.q === 'function' ? s.q(state) : s.q);
+      if (s.type === 'text') {
+        const v = await ask({ placeholder: s.placeholder || '', min: s.optional ? 0 : (s.min || 1), max: s.max || 200, optional: !!s.optional, multiline: !!s.multiline, note: s.note || '' });
+        setAnswer(s.key, s.label, v);
+        next();
+        return;
+      }
+      options(s.options.map(raw => {
+        const o = typeof raw === 'string' ? { label: raw } : raw;
+        return { label: o.label, onClick: async () => {
+          setAnswer(s.key, s.label, o.value || o.label);
+          state[s.key] = o.value || o.label;
+          if (o.urgent) state.urgente = true;
+          const cont = () => o.then ? runSteps(o.then, 0, next) : next();
+          try {
+            if (o.alert) {
+              await bot(o.alert, { alert: true });
+              if (o.urgentWa) {
+                options([
+                  { label: o.urgentLabel || 'Falar agora no WhatsApp', variant: 'wa', icon: 'wa', href: waLink(o.urgentWa) },
+                  { label: 'Continuar', onClick: cont }
+                ]);
+                return;
+              }
+            }
+            cont();
+          } catch (e) {}
+        } };
+      }));
+    } catch (e) {}
+  }
+
+  async function relato() {
+    try {
+      if (state.urgente && B.urgentNote) await bot(B.urgentNote, { alert: true });
+      await bot(B.relatoQ);
+      state.resumo = await ask({ placeholder: B.relatoPlaceholder, min: B.relatoOptional ? 0 : 10, max: 800, multiline: true, optional: !!B.relatoOptional, note: B.relatoNote || '' });
+      nome();
+    } catch (e) {}
+  }
+
+  async function nome() {
+    try {
+      await bot(B.nomeQ || 'Obrigado! Qual é o seu nome?');
+      state.nome = await ask({ placeholder: 'Seu nome', min: 2, max: 80 });
+      telefone();
+    } catch (e) {}
+  }
+
+  async function telefone() {
+    try {
+      await bot('Qual o melhor telefone ou WhatsApp, com DDD, para retornarmos o contato?');
+      while (true) {
+        const v = await ask({ placeholder: '(11) 99999-9999', min: 8, max: 15, mask: 'tel' });
+        const digitos = v.replace(/\D/g, '');
+        if (digitos.length >= 10 && digitos.length <= 11) { state.telefone = v; break; }
+        await bot('Esse número parece incompleto. Pode conferir e digitar com o DDD?');
+      }
+      cidade();
+    } catch (e) {}
+  }
+
+  async function cidade() {
+    try {
+      if (!B.cidadeQ) { revisar(); return; }
+      await bot(B.cidadeQ);
+      state.cidade = await ask({ placeholder: B.cidadePlaceholder || 'Ex.: São Paulo/SP', max: 80, optional: true });
+      revisar();
+    } catch (e) {}
+  }
+
+  function resumoBox(titulo) {
+    const box = document.createElement('div');
+    const strong = document.createElement('strong');
+    strong.textContent = titulo;
+    box.appendChild(strong);
+    const dl = document.createElement('dl');
+    const add = (k, v) => { if (!v) return; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dl.append(dt, dd); };
+    add('Nome', state.nome); add('Telefone', state.telefone); add(B.cidadeLabel, state.cidade);
+    state.answers.forEach(a => add(a.label, a.value));
+    add(B.relatoLabel, state.resumo);
+    box.appendChild(dl);
+    return box;
+  }
+
+  async function revisar() {
+    try {
+      const bubble = await bot(resumoBox('Confira seus dados'));
+      bubble.classList.add('tb-summary');
+      const wrap = document.createElement('div');
+      wrap.appendChild(document.createTextNode('Seus dados serão usados apenas para retornarmos o contato, conforme nossa '));
+      const a = document.createElement('a');
+      a.href = 'privacidade.html'; a.target = '_blank'; a.textContent = 'Política de Privacidade';
+      wrap.appendChild(a);
+      wrap.appendChild(document.createTextNode('. Posso enviar sua solicitação?'));
+      await bot(wrap);
+      options([
+        { label: 'Concordo e enviar', variant: 'primary', onClick: enviar },
+        { label: 'Corrigir (recomeçar)', variant: 'ghost', onClick: start, silent: true },
+        { label: 'Não concordo', variant: 'ghost', onClick: declined }
+      ]);
+    } catch (e) {}
+  }
+
+  async function declined() {
+    try {
+      await bot('Sem problemas. Nenhum dado foi enviado. Se preferir, fale diretamente conosco pelo WhatsApp: ' + S.waDisplay + '.');
+      options([
+        { label: 'Recomeçar', onClick: start, silent: true },
+        { label: 'Abrir WhatsApp', variant: 'wa', icon: 'wa', href: waLink(B.waDefault) }
+      ]);
+    } catch (e) {}
+  }
+
+  function camposEmail() {
+    const c = { 'Nome': state.nome, 'Telefone': state.telefone };
+    if (B.cidadeQ) c[B.cidadeLabel] = state.cidade || 'Não informado';
+    state.answers.forEach(a => { c[a.label] = a.value || '—'; });
+    c['Urgente'] = state.urgente ? 'SIM' : 'Não';
+    c[B.relatoLabel] = state.resumo || '—';
+    c['Origem'] = 'Assistente virtual do site';
+    return c;
+  }
+
+  async function enviar() {
+    const myRun = run;
+    try {
+      if (!S.web3formsKey) {
+        await bot('Toque no botão abaixo: o WhatsApp vai abrir com tudo já escrito. É só enviar.');
+        options([
+          { label: 'Enviar pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()), onClick: sent },
+          { label: 'Corrigir (recomeçar)', variant: 'ghost', onClick: start, silent: true }
+        ]);
+        return;
+      }
+      await bot('Enviando sua solicitação…', { delay: 300 });
+      const principal = state.answers[0] ? state.answers[0].value : 'Contato';
+      const assunto = (state.urgente ? '⚠️ URGENTE – ' : '') + 'Novo contato pelo assistente – ' + principal + ' – ' + state.nome;
+      const ok = await window.enviarEmail(assunto, camposEmail());
+      if (myRun !== run) return;
+      if (ok) {
+        await bot(B.sentMsg);
+        await bot('Se quiser agilizar, você também pode nos chamar no WhatsApp com o resumo já pronto.');
+        options([
+          { label: 'Enviar também pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()) },
+          { label: 'Recomeçar', variant: 'ghost', onClick: start, silent: true }
+        ]);
+      } else {
+        await bot('Não consegui enviar automaticamente agora. Para não perder seu contato, envie pelo WhatsApp: a mensagem já está pronta.', { alert: true });
+        options([
+          { label: 'Enviar pelo WhatsApp', variant: 'wa', icon: 'wa', href: waLink(buildMessage()), onClick: sent },
+          { label: 'Tentar de novo', onClick: enviar, silent: true }
+        ]);
+      }
+    } catch (e) {}
+  }
+
+  async function sent() {
+    try {
+      await sleep(600);
+      await bot(B.sentWaMsg);
+      options([
+        { label: 'Abrir o WhatsApp de novo', variant: 'wa', icon: 'wa', href: waLink(buildMessage()) },
+        { label: 'Recomeçar', variant: 'ghost', onClick: start, silent: true }
+      ]);
+    } catch (e) {}
+  }
+
+  // ===== Abrir / fechar =====
+  function open() {
+    panel.hidden = false;
+    document.body.classList.add('tb-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    launcher.setAttribute('aria-label', 'Fechar assistente virtual');
+    hideHint();
+    if (!started) { started = true; start(); }
+    setTimeout(() => { const f = opts.querySelector('.tb-opt') || (!form.hidden && text); f && f.focus(); }, 50);
+  }
+  function close() {
+    panel.hidden = true;
+    document.body.classList.remove('tb-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    launcher.setAttribute('aria-label', 'Abrir assistente virtual');
+    launcher.focus();
+  }
+  launcher.addEventListener('click', () => panel.hidden ? open() : close());
+  $('tb-close').addEventListener('click', close);
+  $('tb-restart').addEventListener('click', start);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
+  document.querySelectorAll('[data-open-assistente]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); open(); }));
+
+  // Aviso que aparece uma vez por visita
+  function hideHint() { hint.hidden = true; try { sessionStorage.setItem('tb-hint', '1'); } catch (e) {} }
+  let seen = false;
+  try { seen = sessionStorage.getItem('tb-hint') === '1'; } catch (e) {}
+  if (!seen) {
+    setTimeout(() => { if (panel.hidden) { hint.hidden = false; setTimeout(() => { if (!hint.hidden) hint.hidden = true; }, 12000); } }, 5000);
+  }
+  hint.addEventListener('click', (e) => { if (e.target.id !== 'tb-hint-close') open(); });
+  hint.addEventListener('keydown', (e) => { if (e.key === 'Enter') open(); });
+  $('tb-hint-close').addEventListener('click', (e) => { e.stopPropagation(); hideHint(); });
+})();
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const S = window.SITE;
+
+    // Links de WhatsApp: qualquer elemento com data-wa="mensagem" recebe o link certo
+    document.querySelectorAll('[data-wa]').forEach(a => {
+      a.href = waLink(a.getAttribute('data-wa'));
+      a.target = '_blank'; a.rel = 'noopener noreferrer';
+    });
+
+    // Menu mobile
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      const setOpen = (open) => {
+        mobileMenu.classList.toggle('hidden', !open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      };
+      menuBtn.addEventListener('click', () => setOpen(mobileMenu.classList.contains('hidden')));
+      mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+    }
+
+    // Animação suave ao rolar
+    const els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+      }), { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    } else {
+      els.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Ano do rodapé sempre atualizado
+    const ano = document.getElementById('ano-atual');
+    if (ano) ano.textContent = new Date().getFullYear();
+
+    // Formulário de contato: e-mail automático (se configurado) ou WhatsApp
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const erro = document.getElementById('form-erro');
+    const btn = document.getElementById('form-btn');
+    const okBox = document.getElementById('form-ok');
+    const temEmail = !!S.web3formsKey;
+    const btnTexto = btn.textContent;
+    if (!temEmail) {
+      btn.textContent = 'Enviar pelo WhatsApp';
+      document.getElementById('form-nota').textContent = 'Preencha os campos abaixo. Ao enviar, o nosso WhatsApp será aberto com sua mensagem já escrita — é só tocar em enviar.';
+    }
+    const telInput = document.getElementById('telefone');
+    telInput.addEventListener('input', () => { telInput.value = window.mascaraTel(telInput.value); });
+    document.getElementById('form-novo').addEventListener('click', () => {
+      okBox.classList.add('hidden'); form.classList.remove('hidden'); document.getElementById('nome').focus();
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const get = (id) => document.getElementById(id).value.trim();
+      const nome = get('nome'), email = get('email'), telefone = get('telefone'), assunto = get('assunto'), mensagem = get('mensagem');
+      const consentiu = document.getElementById('consentimento').checked;
+
+      let problema = '';
+      if (!nome || !email || !telefone || !mensagem) problema = 'Por favor, preencha todos os campos.';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) problema = 'Verifique se o e-mail está correto.';
+      else if (telefone.replace(/\D/g, '').length < 10) problema = 'Informe o telefone com DDD.';
+      else if (!consentiu) problema = 'Para continuar, marque a caixa de concordância com a Política de Privacidade.';
+      if (problema) { erro.textContent = problema; erro.classList.remove('hidden'); return; }
+      erro.classList.add('hidden');
+
+      const texto =
+        S.bot.waDefault + '\n\n' +
+        '*Nome:* ' + nome + '\n' +
+        '*E-mail:* ' + email + '\n' +
+        '*Telefone:* ' + telefone + '\n' +
+        '*' + S.formAssuntoLabel + ':* ' + assunto + '\n\n' +
+        '*Mensagem:* ' + mensagem;
+      const linkWa = waLink(texto);
+
+      if (!temEmail) { window.open(linkWa, '_blank', 'noopener'); return; }
+      if (document.getElementById('botcheck').checked) return;
+
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      const ok = await window.enviarEmail(
+        'Novo contato do site – ' + assunto + ' – ' + nome,
+        { 'Nome': nome, 'E-mail': email, 'Telefone': telefone, [S.formAssuntoLabel]: assunto, 'Mensagem': mensagem, 'Origem': 'Formulário de contato do site' },
+        email
+      );
+      btn.disabled = false; btn.textContent = btnTexto;
+      if (ok) {
+        form.reset(); form.classList.add('hidden'); okBox.classList.remove('hidden');
+      } else {
+        erro.textContent = '';
+        erro.appendChild(document.createTextNode('Não foi possível enviar agora. '));
+        const a = document.createElement('a');
+        a.href = linkWa; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'underline';
+        a.textContent = 'Envie pelo WhatsApp com a mensagem já pronta.';
+        erro.appendChild(a);
+        erro.classList.remove('hidden');
+      }
+    });
+  });
+</script>
+<!-- FIM: assistente virtual + formulário -->

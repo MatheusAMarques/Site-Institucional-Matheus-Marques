@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Portfólio | Sites institucionais por Matheus Marques</title>
+<meta content="Sites institucionais para escritórios, clínicas e pequenos negócios: design sob medida, assistente virtual de atendimento, integração com WhatsApp e adequação à LGPD." name="description">
+<meta name="theme-color" content="#16161A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316161A'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23F2EFE9'%3EM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2EFE9; --card: #FFFFFF; --ink: #16161A; --muted: #5E5B55; --line: #DEDAD1; --tag: #EAE6DD;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141416; --card: #1D1D21; --ink: #F2EFE9; --muted: #A5A19A; --line: #2E2E33; --tag: #28282D; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 72px 0 48px; }
+  .eyebrow { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+  h1 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02; margin: 0 0 20px; letter-spacing: -.01em; }
+  h1 em { color: var(--muted); }
+  .lead { max-width: 640px; font-size: 1.1rem; color: var(--muted); margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 28px; padding-bottom: 80px; }
+  @media (max-width: 400px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; transition: transform .3s ease, box-shadow .3s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -28px rgba(0,0,0,.35); }
+  .card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--line); }
+  .body { padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .seg { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 1.9rem; line-height: 1.1; margin: 0; }
+  .desc { color: var(--muted); font-size: .95rem; margin: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .tags span { font-size: 12px; background: var(--tag); border-radius: 999px; padding: 4px 10px; }
+  .go { font-weight: 600; font-size: .9rem; margin-top: 6px; }
+  .real { font-size: 11px; font-weight: 600; background: #1F7A4D; color: #fff; border-radius: 999px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; letter-spacing: .04em; }
+  .feat { border-top: 1px solid var(--line); padding: 56px 0 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+  .feat h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 1.5rem; margin: 0 0 6px; }
+  .feat p { margin: 0; color: var(--muted); font-size: .95rem; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 14px 24px; border-radius: 999px; background: #1F7A4D; color: #fff; font-weight: 600; text-decoration: none; transition: background .2s ease; }
+  .cta:hover { background: #17633E; }
+  .cta svg, .wa-float svg { width: 20px; height: 20px; }
+  .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 60px; height: 60px; border-radius: 999px; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 30px -10px rgba(0,0,0,.45); transition: transform .2s ease; }
+  .wa-float:hover { transform: scale(1.07); }
+  .wa-float svg { width: 32px; height: 32px; }
+  a:focus-visible { outline: 2px solid #1F7A4D; outline-offset: 3px; }
+</style>
+</head>
+<body>
+<svg aria-hidden="true" style="display:none">
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.044.086.073.187.015.303-.059.116-.088.188-.175.289l-.261.303c-.087.086-.179.18-.077.355.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.044.102-.116.433-.506.549-.68.116-.173.231-.144.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.044.072.044.419-.1.824zm-3.423-10.416c-5.523 0-10 4.477-10 10 0 1.769.459 3.494 1.332 5.008l-1.417 5.178 5.305-1.392c1.45.792 3.093 1.21 4.779 1.211 5.522 0 10-4.477 10-10 0-5.523-4.478-10-9.999-10z"/>
+  </symbol>
+</svg>
+<a aria-label="Falar com Matheus pelo WhatsApp: (11) 95450-7278" class="wa-float" href="https://wa.me/5511954507278?text=Ol%C3%A1%2C%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20site." rel="noopener noreferrer" target="_blank" title="Falar pelo WhatsApp"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg></a>
+<div class="wrap">
+<header>
+<p class="eyebrow">Portfólio · Sites institucionais</p>
+<h1>Sites que <em>atendem</em> por você.</h1>
+<p class="lead">Páginas sob medida para escritórios, clínicas e pequenos negócios — com design próprio, assistente virtual que faz a triagem do cliente, integração com WhatsApp e e-mail, e adequação à LGPD.</p>
+<a class="cta" href="https://wa.me/5511954507278?text=Ol%C3%A1%2C%20Matheus!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20site." rel="noopener noreferrer" target="_blank"><svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>Quero um site assim · (11) 95450-7278</a>
+</header>
+
+<main class="grid">
+<a class="card" href="https://marquesepeixer-matheusamarques.vercel.app/" rel="noopener" target="_blank">
+<img alt="Página inicial do site Marques & Peixer Advogados Associados" loading="lazy" src="capas/marques-peixer.jpg">
+<div class="body"><span class="seg">Advocacia · São Paulo/SP <span class="real">No ar</span></span><h2>Marques &amp; Peixer</h2><p class="desc">Escritório de advocacia com triagem jurídica automatizada e sinalização de casos urgentes.</p><div class="tags"><span>Triagem jurídica</span><span>Web3Forms</span><span>LGPD</span></div><span class="go">Ver site →</span></div>
+</a>
+<a class="card" href="aurora-odontologia/">
+<img alt="Página inicial do site Aurora Odontologia" loading="lazy" src="capas/aurora-odontologia.jpg">
+<div class="body"><span class="seg">Odontologia · conceito</span><h2>Aurora Odontologia</h2><p class="desc">Clínica odontológica com pré-agendamento guiado e fluxo de urgência para dor.</p><div class="tags"><span>Agendamento</span><span>Jornada do paciente</span><span>FAQ</span></div><span class="go">Ver site →</span></div>
+</a>
+<a class="card" href="vertice-contabilidade/">
+<img alt="Página inicial do site Vértice Contabilidade" loading="lazy" src="capas/vertice-contabilidade.jpg">
+<div class="body"><span class="seg">Contabilidade · conceito</span><h2>Vértice Contabilidade</h2><p class="desc">Contabilidade digital com tabela de planos e simulador que qualifica o lead antes do contato.</p><div class="tags"><span>Planos e preços</span><span>Simulador</span><span>B2B</span></div><span class="go">Ver site →</span></div>
+</a>
+<a class="card" href="atelier-lumen/">
+<img alt="Página inicial do site Atelier Lumen Arquitetura" loading="lazy" src="capas/atelier-lumen.jpg">
+<div class="body"><span class="seg">Arquitetura · conceito</span><h2>Atelier Lumen</h2><p class="desc">Estúdio de arquitetura com layout editorial, galeria de projetos e briefing guiado.</p><div class="tags"><span>Editorial</span><span>Galeria</span><span>Briefing</span></div><span class="go">Ver site →</span></div>
+</a>
+<a class="card" href="amigo-fiel-vet/">
+<img alt="Página inicial do site Amigo Fiel Clínica Veterinária" loading="lazy" src="capas/amigo-fiel-vet.jpg">
+<div class="body"><span class="seg">Veterinária · conceito</span><h2>Amigo Fiel</h2><p class="desc">Clínica veterinária 24h com faixa de emergência e assistente que identifica casos graves.</p><div class="tags"><span>Emergência 24h</span><span>Agendamento</span><span>Equipe</span></div><span class="go">Ver site →</span></div>
+</a>
+<a class="card" href="studio-equilibrio/">
+<img alt="Página inicial do site Studio Equilíbrio Pilates e Fisioterapia" loading="lazy" src="capas/studio-equilibrio.jpg">
+<div class="body"><span class="seg">Pilates &amp; Fisioterapia · conceito</span><h2>Studio Equilíbrio</h2><p class="desc">Studio de pilates com grade de horários, planos por frequência e agendamento de aula experimental.</p><div class="tags"><span>Grade de horários</span><span>Planos</span><span>Aula experimental</span></div><span class="go">Ver site →</span></div>
+</a>
+</main>
+
+<section class="feat">
+<div><h3>Assistente virtual</h3><p>Faz as perguntas certas, identifica urgências e entrega ao cliente um resumo pronto para enviar.</p></div>
+<div><h3>WhatsApp e e-mail</h3><p>Formulários e assistente enviam por e-mail (Web3Forms) com o WhatsApp como alternativa automática.</p></div>
+<div><h3>LGPD</h3><p>Consentimento explícito, política de privacidade própria e estatísticas de visita sem cookies.</p></div>
+<div><h3>Rápido e leve</h3><p>Página única, responsiva, acessível e pronta para compartilhar com pré-visualização no WhatsApp.</p></div>
+</section>
+</div>
+<footer><div class="wrap">Matheus Marques · <a href="https://wa.me/5511954507278" rel="noopener noreferrer" target="_blank">WhatsApp (11) 95450-7278</a> ·Os sites marcados como “conceito” são projetos de portfólio com empresas e dados fictícios. Fotos: Unsplash.</div></footer>
+</body>
+</html>
